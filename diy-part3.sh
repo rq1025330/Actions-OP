@@ -22,7 +22,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 #replace coremark.sh with the new one
 #cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 # Routine repair
-sed -i 's/HASH:=8dcf5973033d40c9a7b15e571dea3832e7b67976aad9113369e22d43808c603f/HASH:=5f693c4779c1d6802e509c2c1e5f130017fd6634a0ccd3a0de47be419c068f5e/g' package/naiveproxy
+#sed -i 's/HASH:=8dcf5973033d40c9a7b15e571dea3832e7b67976aad9113369e22d43808c603f/HASH:=5f693c4779c1d6802e509c2c1e5f130017fd6634a0ccd3a0de47be419c068f5e/g' package/naiveproxy
 
 # 移除不用软件包
 rm -rf package/lean/luci-app-netdata
