@@ -5,4 +5,4 @@ OpVersion=$(echo "$(cat /workdir/openwrt/package/lean/default-settings/files/zzz
 echo $OpVersion
 echo $PWD
 
-sed -i "s/OPENWRT_VER=.*/OPENWRT_VER=\"$OpVersion\"/" /home/runner/work/Actions-OpenWrt/Actions-OP/scripts/whoami
+sed -i "s/OPENWRT_VER=.*/OPENWRT_VER=\"$OpVersion\"/" /home/runner/work/Actions-OP/Actions-OP/scripts/whoami
