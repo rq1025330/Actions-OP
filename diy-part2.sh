@@ -36,6 +36,7 @@ svn export https://github.com/openwrt/packages/trunk/utils/runc/Makefile feeds/p
 rm -rf package/lean/luci-app-netdata
 rm -rf package/lean/luci-app-pptp-server
 rm -rf package/lean/luci-theme-argon
+rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
 #rm -rf feeds/packages/net/kcptun
