@@ -5964,6 +5964,7 @@ CONFIG_DNSPROXY_COMPRESS_GOPROXY=y
 CONFIG_PACKAGE_mosdns=y
 # CONFIG_MOSDNS_COMPRESS_GOPROXY is not set
 CONFIG_MOSDNS_COMPRESS_UPX=y
+# CONFIG_PACKAGE_mosdns-geodata is not set
 # CONFIG_PACKAGE_nsd is not set
 # CONFIG_PACKAGE_nsd-control is not set
 # CONFIG_PACKAGE_nsd-control-setup is not set
@@ -7855,3 +7856,5 @@ CONFIG_PACKAGE_uuidgen=y
 # CONFIG_PACKAGE_fontconfig is not set
 # end of Font-Utils
 # end of Xorg
+
+CONFIG_OVERRIDE_PKGS="mosdns"
