@@ -168,7 +168,7 @@ jobs:
         else
           echo "File is not identical"
           if [ ! -d "${CONFIG_FILE}.*" ]; then
-           git rm -rf ${CONFIG_FILE}.*
+            git rm -rf ${CONFIG_FILE}.*
           fi
           cp -Rf $GITHUB_WORKSPACE/openwrt/.config ${CONFIG_FILE}.${{ env.DATE1 }}
           #git rm -rf ${CONFIG_FILE}
