@@ -3,7 +3,7 @@
 cd /opt/openwrt_packit
 cp make.env makeplus.env
 cp make.env makeplusplus.env
-cp make.env makeplusplusplus.env
+#cp make.env makeplusplusplus.env
 
 #sync the kernel version
 KV=$(find /opt/kernel/ -name "boot*+o.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
@@ -26,8 +26,11 @@ find ./* -maxdepth 1 -path "*_plusplus.sh" | xargs -i sed -i 's/make\.env/makepl
 #find ./* -maxdepth 1 -path "*_plusplusplus.sh" | xargs -i sed -i 's/make\.env/makeplusplusplus\.env/g' {}
 
 #统一用Full打包
-find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh ./*_plusplusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i 's/OP_ROOT_TGZ=\"openwrt/OP_ROOT_TGZ=\"Full-openwrt/g' {}
-find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh ./*_plusplusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i '/^TGT_IMG.*img\"$/s/\.img/\_Full\.img/g' {}
+#find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh ./*_plusplusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i 's/OP_ROOT_TGZ=\"openwrt/OP_ROOT_TGZ=\"Full-openwrt/g' {}
+#find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh ./*_plusplusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i '/^TGT_IMG.*img\"$/s/\.img/\_Full\.img/g' {}
+
+find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i 's/OP_ROOT_TGZ=\"openwrt/OP_ROOT_TGZ=\"Full-openwrt/g' {}
+find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i '/^TGT_IMG.*img\"$/s/\.img/\_Full\.img/g' {}
 
 #旧内核新内核分开打包
 #12以后内核无法使用SFE，使用仅含FOL的固件进行打包
