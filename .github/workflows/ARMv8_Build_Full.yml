@@ -9,7 +9,7 @@ on:
     branches:
       - master
     paths:
-      - 'BuildARMv8/*'
+      - 'BuildARMv8/*.*/*.tar.gz'
   schedule:
     - cron: 0 0 * * *
   watch:
