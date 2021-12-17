@@ -11,6 +11,11 @@ on:
   workflow_dispatch:
 #  release:
 #    types: published
+  push:
+    branches:
+      - master
+    paths:
+      - 'BuildARMv8/*'
   schedule:
     - cron: 0 0 * * *
   watch:
