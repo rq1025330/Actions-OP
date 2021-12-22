@@ -3043,12 +3043,6 @@ CONFIG_NODEJS_ICU_NONE=y
 # end of Node.js
 
 #
-# PHP7
-#
-# CONFIG_PACKAGE_php7 is not set
-# end of PHP7
-
-#
 # PHP8
 #
 # CONFIG_PACKAGE_php8 is not set
@@ -6460,7 +6454,6 @@ CONFIG_XRAY_CORE_COMPRESS_UPX=y
 # end of Xray-core Configuration
 
 # CONFIG_PACKAGE_xray-example is not set
-# CONFIG_PACKAGE_xray-geodata is not set
 # end of Network
 
 #
