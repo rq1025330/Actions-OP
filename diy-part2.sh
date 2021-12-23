@@ -28,9 +28,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
 # 临时错误修复
-#sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/g' feeds/packages/utils/dockerd/Makefile
-#rm -rf feeds/packages/utils/runc/Makefile
-#svn export https://github.com/openwrt/packages/trunk/utils/runc/Makefile feeds/packages/utils/runc/Makefile
+
 
 # 移除不用软件包
 rm -rf package/lean/luci-app-netdata
