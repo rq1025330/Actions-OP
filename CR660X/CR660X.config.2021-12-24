@@ -5591,11 +5591,6 @@ CONFIG_UnblockNeteaseMusic-Go_INCLUDE_GOPROXY=y
 # OpenLDAP
 #
 # CONFIG_PACKAGE_libopenldap is not set
-CONFIG_OPENLDAP_DEBUG=y
-# CONFIG_OPENLDAP_CRYPT is not set
-# CONFIG_OPENLDAP_MONITOR is not set
-# CONFIG_OPENLDAP_DB47 is not set
-# CONFIG_OPENLDAP_ICU is not set
 # CONFIG_PACKAGE_openldap-server is not set
 # CONFIG_PACKAGE_openldap-utils is not set
 # end of OpenLDAP
