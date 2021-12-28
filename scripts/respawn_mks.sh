@@ -10,10 +10,10 @@ KV=$(find /opt/kernel/ -name "boot*+o.tar.gz" | awk -F '[-.]' '{print $2"."$3"."
 KPV=$(find /opt/kernel/ -name "boot*5\.10*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
 KPPV=$(find /opt/kernel/ -name "boot*5\.15*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
 #KPPPV=$(find /opt/kernel/ -name "boot*5\.16*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
-sed -i "s/^    KERNEL_VERSION.*/KERNEL_VERSION=\"$KV\"/" make.env
-sed -i "s/^    KERNEL_VERSION.*/KERNEL_VERSION=\"$KPV\"/" makeplus.env
-sed -i "s/^    KERNEL_VERSION.*/KERNEL_VERSION=\"$KPPV\"/" makeplusplus.env
-#sed -i "s/^    KERNEL_VERSION.*/KERNEL_VERSION=\"$KPPPV\"/" makeplusplusplus.env
+sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KV\"/" make.env
+sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPV\"/" makeplus.env
+sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPPV\"/" makeplusplus.env
+#sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPPPV\"/" makeplusplusplus.env
 
 #修改默认DTB文件，分隔符 "/" 替换成 "?"
 sed -i 's?FDT=/dtb/amlogic/meson-sm1-x96-max-plus-100m.dtb?#FDT=/dtb/amlogic/meson-sm1-x96-max-plus-100m.dtb?g' mk_s905x3_multi.sh
