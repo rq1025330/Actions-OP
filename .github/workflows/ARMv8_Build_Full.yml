@@ -90,6 +90,16 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo cp $GITHUB_WORKSPACE/scripts/whoami ./
+        #sudo ./mk_h6_vplus.sh
+        #sudo ./mk_h6_vplus_basic.sh
+        #sudo ./mk_h6_vplus_plus.sh
+        #sudo ./mk_h6_vplus_plusplus.sh
+        #sudo ./mk_h6_vplus_plusplusplus.sh
+        #sudo ./mk_openwrt_dockerimgs.sh
+        #sudo ./mk_openwrt_dockerimgs_basic.sh
+        #sudo ./mk_openwrt_dockerimg_plus.sh
+        #sudo ./mk_openwrt_dockerimgs_plusplus.sh
+        #sudo ./mk_openwrt_dockerimg_plusplusplus.sh
         #sudo ./mk_rk3328_beikeyun.sh
         #sudo ./mk_rk3328_beikeyun_basic.sh
         #sudo ./mk_rk3328_beikeyun_plus.sh
@@ -100,6 +110,11 @@ jobs:
         #sudo ./mk_rk3328_l1pro_plus.sh
         #sudo ./mk_rk3328_l1pro_plusplus.sh
         #sudo ./mk_rk3328_l1pro_plusplusplus.sh
+        #sudo ./mk_s905_mxqpro+.sh
+        #sudo ./mk_s905_mxqpro+_basic.sh
+        #sudo ./mk_s905_mxqpro+_plus.sh
+        #sudo ./mk_s905_mxqpro+_plusplus.sh
+        #sudo ./mk_s905_mxqpro+_plusplusplus.sh
         #sudo ./mk_s905d_n1.sh
         sudo ./mk_s905d_n1_basic.sh
         sudo ./mk_s905d_n1_plus.sh
@@ -124,11 +139,12 @@ jobs:
         #sudo ./mk_s922x_gtking_basic.sh
         #sudo ./mk_s922x_gtking_plus.sh
         #sudo ./mk_s922x_gtking_plusplus.sh
-        #sudo ./mk_h6_vplus.sh
-        #sudo ./mk_h6_vplus_basic.sh
-        #sudo ./mk_h6_vplus_plus.sh
-        #sudo ./mk_h6_vplus_plusplus.sh
-        #sudo ./mk_h6_vplus_plusplusplus.sh
+        #sudo ./mk_s922x_gtking_plusplusplus.sh
+        #sudo ./mk_s922x_odroid-n2.sh
+        #sudo ./mk_s922x_odroid-n2_basic.sh
+        #sudo ./mk_s922x_odroid-n2_plus.sh
+        #sudo ./mk_s922x_odroid-n2_plusplus.sh
+        #sudo ./mk_s922x_odroid-n2_plusplusplus.sh        
         #sudo cp ./*AllPackages.tar.gz ./output/
         #sudo cp ./F-AllPackages.tar.gz ./output/
         #sudo cp ./SF-AllPackages.tar.gz ./output/
