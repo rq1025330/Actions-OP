@@ -28,7 +28,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
 # 临时错误修复
-cp -f $GITHUB_WORKSPACE/general/trojan-go/Makefile package/trojan-go/Makefile
+#cp -f $GITHUB_WORKSPACE/general/trojan-go/Makefile package/trojan-go/Makefile
 
 # 移除不用软件包
 rm -rf package/lean/luci-app-netdata
