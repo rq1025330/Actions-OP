@@ -168,8 +168,11 @@ jobs:
           echo "File is identical"
         else
           echo "File is not identical"
-          if [ ! -d "${CONFIG_FILE}.*" ]; then
+          if [ -f "${CONFIG_FILE}.*" ]; then
+            echo "File exists"
             git rm -rf ${CONFIG_FILE}.*
+          else
+            echo "File does not exist"
           fi
           cp -Rf $GITHUB_WORKSPACE/openwrt/.config ${CONFIG_FILE}.${{ env.DATE1 }}
           #git rm -rf ${CONFIG_FILE}
