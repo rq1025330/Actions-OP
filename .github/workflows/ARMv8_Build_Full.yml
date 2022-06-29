@@ -40,7 +40,25 @@ jobs:
       
     - name: Checkout
       uses: actions/checkout@master
-
+      
+    - name: Check server performance
+      run: |
+        echo "警告⚠"
+        echo "若分配的服务器性能不足，务必及时取消，重新运行！"
+        echo "已知编译成功CPU型号：8370C,8171M"
+        echo "已知性能不足CPU型号：8272CL"
+        echo -e "-------------- ------------CPU信息------------------------------------------\n"
+        echo "CPU物理数量:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
+        echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo "-------------------------------内存信息-------------------------------------------"
+        echo "已安装内存详细信息："
+        sudo lshw -short -C memory | grep GiB
+        echo -e "\n"
+        echo "-----------------------------硬盘信息---------------------------------------------"
+        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
+        echo "硬盘详情："
+        df -Th
+        
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -94,57 +112,46 @@ jobs:
         #sudo ./mk_h6_vplus_basic.sh
         #sudo ./mk_h6_vplus_plus.sh
         #sudo ./mk_h6_vplus_plusplus.sh
-        #sudo ./mk_h6_vplus_plusplusplus.sh
         #sudo ./mk_openwrt_dockerimgs.sh
         #sudo ./mk_openwrt_dockerimgs_basic.sh
         #sudo ./mk_openwrt_dockerimg_plus.sh
         #sudo ./mk_openwrt_dockerimgs_plusplus.sh
-        #sudo ./mk_openwrt_dockerimg_plusplusplus.sh
         #sudo ./mk_rk3328_beikeyun.sh
         #sudo ./mk_rk3328_beikeyun_basic.sh
         #sudo ./mk_rk3328_beikeyun_plus.sh
         #sudo ./mk_rk3328_beikeyun_plusplus.sh
-        #sudo ./mk_rk3328_beikeyun_plusplusplus.sh
         #sudo ./mk_rk3328_l1pro.sh
         #sudo ./mk_rk3328_l1pro_basic.sh
         #sudo ./mk_rk3328_l1pro_plus.sh
         #sudo ./mk_rk3328_l1pro_plusplus.sh
-        #sudo ./mk_rk3328_l1pro_plusplusplus.sh
         #sudo ./mk_s905_mxqpro+.sh
         #sudo ./mk_s905_mxqpro+_basic.sh
         #sudo ./mk_s905_mxqpro+_plus.sh
         #sudo ./mk_s905_mxqpro+_plusplus.sh
-        #sudo ./mk_s905_mxqpro+_plusplusplus.sh
         #sudo ./mk_s905d_n1.sh
         sudo ./mk_s905d_n1_basic.sh
-        sudo ./mk_s905d_n1_plus.sh
+        #sudo ./mk_s905d_n1_plus.sh
         sudo ./mk_s905d_n1_plusplus.sh
-        #sudo ./mk_s905d_n1_plusplusplus.sh
         #sudo ./mk_s905x2_x96max.sh
         #sudo ./mk_s905x2_x96max_basic.sh
         #sudo ./mk_s905x2_x96max_plus.sh
         #sudo ./mk_s905x2_x96max_plusplus.sh
-        #sudo ./mk_s905x2_x96max_plusplusplus.sh
         #sudo ./mk_s905x3_multi.sh
         sudo ./mk_s905x3_multi_basic.sh
-        sudo ./mk_s905x3_multi_plus.sh
+        #sudo ./mk_s905x3_multi_plus.sh
         sudo ./mk_s905x3_multi_plusplus.sh
-        #sudo ./mk_s905x3_multi_plusplusplus.sh
         #sudo ./mk_s912_zyxq.sh
         #sudo ./mk_s912_zyxq_basic.sh
         #sudo ./mk_s912_zyxq_plus.sh
         #sudo ./mk_s912_zyxq_plusplus.sh
-        #sudo ./mk_s912_zyxq_plusplusplus.sh
         #sudo ./mk_s922x_gtking.sh
         #sudo ./mk_s922x_gtking_basic.sh
         #sudo ./mk_s922x_gtking_plus.sh
         #sudo ./mk_s922x_gtking_plusplus.sh
-        #sudo ./mk_s922x_gtking_plusplusplus.sh
         #sudo ./mk_s922x_odroid-n2.sh
         #sudo ./mk_s922x_odroid-n2_basic.sh
         #sudo ./mk_s922x_odroid-n2_plus.sh
-        #sudo ./mk_s922x_odroid-n2_plusplus.sh
-        #sudo ./mk_s922x_odroid-n2_plusplusplus.sh        
+        #sudo ./mk_s922x_odroid-n2_plusplus.sh      
         #sudo cp ./*AllPackages.tar.gz ./output/
         #sudo cp ./F-AllPackages.tar.gz ./output/
         #sudo cp ./SF-AllPackages.tar.gz ./output/
@@ -163,6 +170,24 @@ jobs:
 
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
+
+    - name: Check performance again
+      run: |
+        echo "警告⚠"
+        echo "若分配的服务器性能不足，务必及时取消，重新运行！"
+        echo "已知编译成功CPU型号：8370C,8171M"
+        echo "已知性能不足CPU型号：8272CL"
+        echo -e "-------------- ------------CPU信息------------------------------------------\n"
+        echo "CPU物理数量:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
+        echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo "-------------------------------内存信息-------------------------------------------"
+        echo "已安装内存详细信息："
+        sudo lshw -short -C memory | grep GiB
+        echo -e "\n"
+        echo "-----------------------------硬盘信息---------------------------------------------"
+        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
+        echo "硬盘详情："
+        df -Th
 
     - name: Upload bin directory
       uses: actions/upload-artifact@master
