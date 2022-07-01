@@ -110,17 +110,17 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-#svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core
-#svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
-#svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
-#svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
+#svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs #可替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/tcping package/tcping
-#svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
-#svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
-#svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
+#svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin #可替换passwall
 
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk//luci-app-passwall2 package/luci-app-passwall2
