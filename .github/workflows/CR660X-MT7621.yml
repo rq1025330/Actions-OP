@@ -209,7 +209,7 @@ jobs:
             echo "File does not exist"
           else
             echo "File exists"
-            git rm -rf ${CONFIG_FILE}.20*
+            git rm -rf ${CONFIG_FILE}.2022-*
           fi
           cp -Rf $GITHUB_WORKSPACE/openwrt/.config ${CONFIG_FILE}.${{ env.DATE1 }}
           #git rm -rf ${CONFIG_FILE}
