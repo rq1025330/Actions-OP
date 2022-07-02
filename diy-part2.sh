@@ -64,8 +64,10 @@ svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassis
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
 svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
-svn co https://github.com/kenzok8/jell/trunk/luci-app-mosdns package/luci-app-mosdns
-svn co https://github.com/kenzok8/jell/trunk/mosdns package/mosdns
+#svn co https://github.com/kenzok8/jell/trunk/luci-app-mosdns package/luci-app-mosdns
+#svn co https://github.com/kenzok8/jell/trunk/mosdns package/mosdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns #lean中包含,feeds/packages/net
 #svn co https://github.com/kenzok8/jell/trunk/luci-app-syncthing package/luci-app-syncthing
@@ -110,7 +112,7 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core #可替换passwall
+svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core #替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust #可替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev #可替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs #可替换passwall
@@ -119,8 +121,8 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core #可替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata #可替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin #可替换passwall
+svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin #替换passwall
 
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
@@ -134,7 +136,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hyst
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks #与lean重复
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt #与lean重复
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/sagernet-core package/sagernet-core
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/sagernet-core package/sagernet-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
@@ -146,7 +148,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-core package/v2ray-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
 
 # 添加argon-config 最新argon v1.x.x 适配18.06和Lean Openwrt
