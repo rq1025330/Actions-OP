@@ -32,8 +32,16 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 # OpenConnect Change to system
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
-# 临时错误修复
-#cp -f $GITHUB_WORKSPACE/general/trojan-go/Makefile package/trojan-go/Makefile
+# fix luci-theme-opentomcat dockerman icon missing
+rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
+cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
+sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
+
+# python-docker
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d916a26b62970e7c2f554110ed6af04c7ccff8e9f81ad17d0d40c75637e227fb/g' feeds/packages/lang/python/python-docker/Makefile
+
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
