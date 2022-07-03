@@ -198,18 +198,17 @@ jobs:
         cd $GITHUB_WORKSPACE/openwrt
         git clone -b master https://github.com/${{github.repository}}.git repo
         #git clone --depth 1 https://github.com/${{github.repository}} -b master repo
-        cd repo/CR660X
+        cd repo
         chk1=`cksum ${CONFIG_FILE} | awk -F" " '{print $1}'`
         chk2=`cksum $GITHUB_WORKSPACE/openwrt/.config | awk -F" " '{print $1}'`
         if [ $chk1 -eq $chk2 ]; then
           echo "File is identical"
         else
           echo "File is not identical"
-          if [ ! -f "${CONFIG_FILE}.2022*" ]; then
-            echo "File does not exist"
-          else
+          if [ -f "${CONFIG_FILE}.*" ]; then
             echo "File exists"
-            git rm -rf ${CONFIG_FILE}.2022*
+            git rm -rf ${CONFIG_FILE}.*
+            rm -rf ${CONFIG_FILE}.*
           fi
           cp -Rf $GITHUB_WORKSPACE/openwrt/.config ${CONFIG_FILE}.${{ env.DATE1 }}
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
