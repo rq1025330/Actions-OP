@@ -161,10 +161,9 @@ jobs:
         else
           echo "File is not identical"
           if [ -f "${CONFIG_FILE}.*" ]; then
-            echo "File exists"
-            git rm -rf ${CONFIG_FILE}.*
-            rm -rf ${CONFIG_FILE}.*
-          fi
+           echo "File exists"
+           rm -rf ${CONFIG_FILE}.*
+           fi
           cp -Rf $GITHUB_WORKSPACE/openwrt/.config ${CONFIG_FILE}.${{ env.DATE1 }}
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
