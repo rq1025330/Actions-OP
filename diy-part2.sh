@@ -54,14 +54,12 @@ rm -rf feeds/packages/utils/syncthing
 
 # 添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone https://github.com/linkease/nas-packages.git package/nas
-git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
+#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus package/luci-app-wolplus
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/xiaozhuai/luci-app-filebrowser/branches/18.06 package/luci-app-filebrowser #lienol源码改进而来
@@ -83,6 +81,13 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartd
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
 svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
+
+#添加易有云 DDNSTO istore
+git clone https://github.com/linkease/nas-packages.git package/nas
+git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci
+svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
+svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
+sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
 
 # 其他软件包
 
