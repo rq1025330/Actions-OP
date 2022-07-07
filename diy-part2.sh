@@ -39,7 +39,8 @@ sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 
 # python-cryptography
-cp -rf $GITHUB_WORKSPACE/general/python-cryptography feeds/packages/lang/python/
+#cp -rf $GITHUB_WORKSPACE/general/python-cryptography feeds/packages/lang/python/
+svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
 
 # python-docker
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
