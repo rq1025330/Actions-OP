@@ -40,6 +40,7 @@ sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.
 
 # python-cryptography
 #cp -rf $GITHUB_WORKSPACE/general/python-cryptography feeds/packages/lang/python/
+rm -rf feeds/packages/lang/python/python-cryptography
 svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
 
 # python-docker
