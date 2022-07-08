@@ -39,7 +39,6 @@ sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 
 # python-cryptography
-#cp -rf $GITHUB_WORKSPACE/general/python-cryptography feeds/packages/lang/python/
 rm -rf feeds/packages/lang/python/python-cryptography
 svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
 
