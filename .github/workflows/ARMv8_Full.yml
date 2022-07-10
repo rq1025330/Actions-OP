@@ -29,7 +29,7 @@ env:
   Update_Ver_SH: aarch64/autoVersion.sh
   CONFIG_FILE: aarch64/ARMv8_Full.config
 #   SSH_ACTIONS: false
-  UPLOAD_CONFIG: true
+  UPLOAD_CONFIG: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   TZ: Asia/Shanghai

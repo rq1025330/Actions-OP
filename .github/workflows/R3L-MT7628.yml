@@ -29,7 +29,7 @@ env:
   Update_Ver_SH: R3L/autoVersion.sh
   CONFIG_FILE: R3L/R3L.config
 #   SSH_ACTIONS: false
-  UPLOAD_CONFIG: true
+  UPLOAD_CONFIG: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   TZ: Asia/Shanghai
