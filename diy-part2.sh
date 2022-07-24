@@ -39,13 +39,8 @@ sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 
 # python-cryptography
-rm -rf feeds/packages/lang/python/python-cryptography
-svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
-
-# python-docker
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=d916a26b62970e7c2f554110ed6af04c7ccff8e9f81ad17d0d40c75637e227fb/g' feeds/packages/lang/python/python-docker/Makefile
-
+#rm -rf feeds/packages/lang/python/python-cryptography
+#svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
@@ -54,7 +49,6 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
-#rm -rf feeds/packages/net/kcptun
 
 # 添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
@@ -68,10 +62,10 @@ svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus pac
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/xiaozhuai/luci-app-filebrowser/branches/18.06 package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
-svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server
+#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server #已同步Lienol
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-pptp-server package/luci-app-pptp-server #lean中包含
-svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
-#svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-socat package/luci-app-socat
+#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat #已同步Lienol
+#svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-socat package/luci-app-socat #lean中包含
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassistant package/luci-app-fileassistant
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
 svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
@@ -87,11 +81,11 @@ cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn
 svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
 
 #添加易有云 DDNSTO istore
-git clone https://github.com/linkease/nas-packages.git package/nas
-git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci
-svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
-svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
-sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
+git clone https://github.com/linkease/nas-packages.git package/nas-packages
+git clone https://github.com/linkease/nas-packages-luci.git package/nas-packages-luci
+git clone https://github.com/linkease/istore-ui.git package/istore-ui
+git clone https://github.com/linkease/istore.git package/istore
+sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
 
 # 其他软件包
 
