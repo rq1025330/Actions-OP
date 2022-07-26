@@ -32,12 +32,6 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 # OpenConnect Change to system
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
-# fix luci-theme-opentomcat dockerman icon missing
-rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
-cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
-sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
-sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
-
 # ruby
 rm -rf feeds/packages/lang/ruby
 #svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/ruby feeds/packages/lang/ruby
@@ -170,6 +164,11 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_n
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-theme-opentomato
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-theme-opentomcat
+# fix luci-theme-opentomcat dockerman icon missing
+rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
+cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
+sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
 svn co https://github.com/apollo-ng/luci-theme-darkmatter/trunk/luci/themes/luci-theme-darkmatter package/luci-theme-darkmatter
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
