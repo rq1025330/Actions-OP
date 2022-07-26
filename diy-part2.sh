@@ -40,7 +40,8 @@ sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.
 
 # ruby
 rm -rf feeds/packages/lang/ruby
-svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/ruby feeds/packages/lang/ruby
+#svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/ruby feeds/packages/lang/ruby
+svn co https://github.com/openwrt/packages/trunk/lang/ruby feeds/packages/lang/ruby
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
