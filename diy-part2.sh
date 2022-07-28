@@ -33,9 +33,8 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
 # ruby
-rm -rf feeds/packages/lang/ruby
-#svn co https://github.com/jefferyto/openwrt-packages/trunk/lang/ruby feeds/packages/lang/ruby
-svn co https://github.com/openwrt/packages/trunk/lang/ruby feeds/packages/lang/ruby
+#rm -rf feeds/packages/lang/ruby
+#svn co https://github.com/openwrt/packages/trunk/lang/ruby feeds/packages/lang/ruby
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
