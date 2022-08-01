@@ -64,6 +64,7 @@ svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassis
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
 svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
