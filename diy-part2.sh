@@ -115,7 +115,7 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
-#svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
+svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy #可替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core #替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust #可替换passwall
