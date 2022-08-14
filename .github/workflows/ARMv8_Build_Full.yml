@@ -125,6 +125,9 @@ jobs:
         #sudo ./mk_rk3328_l1pro_basic.sh
         #sudo ./mk_rk3328_l1pro_plus.sh
         #sudo ./mk_rk3328_l1pro_plusplus.sh
+        #sudo ./mk_rk3568_r68s_basic.sh
+        #sudo ./mk_rk3568_r68s_plus.sh
+        #sudo ./mk_rk3568_r68s_plusplus.sh
         #sudo ./mk_s905_mxqpro+.sh
         #sudo ./mk_s905_mxqpro+_basic.sh
         #sudo ./mk_s905_mxqpro+_plus.sh
