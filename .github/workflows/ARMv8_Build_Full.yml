@@ -134,7 +134,7 @@ jobs:
         #sudo ./mk_s905_mxqpro+_plusplus.sh
         #sudo ./mk_s905d_n1.sh
         sudo ./mk_s905d_n1_basic.sh
-        #sudo ./mk_s905d_n1_plus.sh
+        sudo ./mk_s905d_n1_plus.sh
         sudo ./mk_s905d_n1_plusplus.sh
         #sudo ./mk_s905x2_x96max.sh
         #sudo ./mk_s905x2_x96max_basic.sh
@@ -142,7 +142,7 @@ jobs:
         #sudo ./mk_s905x2_x96max_plusplus.sh
         #sudo ./mk_s905x3_multi.sh
         sudo ./mk_s905x3_multi_basic.sh
-        #sudo ./mk_s905x3_multi_plus.sh
+        sudo ./mk_s905x3_multi_plus.sh
         sudo ./mk_s905x3_multi_plusplus.sh
         #sudo ./mk_s912_zyxq.sh
         #sudo ./mk_s912_zyxq_basic.sh
