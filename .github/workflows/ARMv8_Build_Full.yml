@@ -96,9 +96,9 @@ jobs:
         echo $PWD
         sudo mkdir /opt/kernel
         #sudo cp $GITHUB_WORKSPACE/BuildARMv8/* /opt/kernel/
-        #sudo cp $GITHUB_WORKSPACE/BuildARMv8/*.*/*.tar.gz /opt/kernel/
-        cd /opt/kernel
-        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/71531609| grep browser_download_url | cut -d '"' -f 4)
+        sudo cp $GITHUB_WORKSPACE/BuildARMv8/*.*/*.tar.gz /opt/kernel/
+        #cd /opt/kernel
+        #sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/71531609| grep browser_download_url | cut -d '"' -f 4)
         cd /opt
         sudo cp $GITHUB_WORKSPACE/scripts/respawn_mks.sh ./
         sudo git clone https://github.com/unifreq/openwrt_packit
