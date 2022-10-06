@@ -13,9 +13,6 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
-# Default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' feeds/luci/collections/luci/Makefile
-
 # Delete default password
 #sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
 
@@ -25,6 +22,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' feeds/luci/collections/l
 
 #replace coremark.sh with the new one
 #cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
+
+# Default theme
+sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' feeds/luci/collections/luci/Makefile
 
 # Autocore
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
@@ -72,7 +72,7 @@ svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syn
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
 
-# Amlogic Service
+# 添加Amlogic Service
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 # Modify the default configuration of Amlogic Box
 # 1.Set the download repository of the OpenWrt files to your github.com（OpenWrt 文件的下载仓库）
