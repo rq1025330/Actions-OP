@@ -37,7 +37,6 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/control
 rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
 
@@ -48,7 +47,6 @@ git clone https://github.com/rq1025330/luci-app-autotimeset package/luci-app-aut
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
-#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus package/luci-app-wolplus
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/xiaozhuai/luci-app-filebrowser/branches/18.06 package/luci-app-filebrowser #lienol源码改进而来
@@ -56,14 +54,9 @@ sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebro
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server #已同步Lienol
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-pptp-server package/luci-app-pptp-server #lean中包含
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat #已同步Lienol
-#svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-socat package/luci-app-socat #lean中包含
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassistant package/luci-app-fileassistant
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
-svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
-svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns #lean中包含,feeds/packages/net
 #svn co https://github.com/kenzok8/jell/trunk/luci-app-syncthing package/luci-app-syncthing
@@ -72,20 +65,12 @@ svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
 svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
 
-#添加易有云 DDNSTO istore
-git clone https://github.com/linkease/nas-packages.git package/nas-packages
-git clone https://github.com/linkease/nas-packages-luci.git package/nas-packages-luci
-git clone https://github.com/linkease/istore-ui.git package/istore-ui
-git clone https://github.com/linkease/istore.git package/istore
-sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
-
 # 其他软件包
-
-#git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot #lean中包含
-#git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan #lean中包含
-#svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive-webdav #lean中包含
-#svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-rebootschedule package/luci-app-rebootschedule #未使用
-#svn co https://github.com/halldong/luci-app-speederv2/trunk package/luci-app-speederv2 #未使用
+#svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
+#svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
+#rm -rf feeds/packages/net/mosdns
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
 
 # Amlogic Service
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
@@ -98,6 +83,13 @@ sed -i "s|https.*/OpenWrt|https://github.com/rq1025330/Actions-OP|g" package/luc
 sed -i "s|.img.gz|_Full.img.gz|g" package/luci-app-amlogic/root/etc/config/amlogic
 # 4.Set the download path of the kernel in your github.com repository（OpenWrt 内核的下载路径）
 sed -i "s|opt/kernel|BuildARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
+
+#添加易有云 DDNSTO istore
+git clone https://github.com/linkease/nas-packages.git package/nas-packages
+git clone https://github.com/linkease/nas-packages-luci.git package/nas-packages-luci
+git clone https://github.com/linkease/istore-ui.git package/istore-ui
+git clone https://github.com/linkease/istore.git package/istore
+sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
 
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 # 编译 po2lmo (如果有po2lmo可跳过)
@@ -126,7 +118,6 @@ svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core #可替换passwall
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin #替换passwall
 
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk//luci-app-passwall2 package/luci-app-passwall2
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
