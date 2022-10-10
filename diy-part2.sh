@@ -43,8 +43,8 @@ rm -rf feeds/packages/utils/syncthing
 # 添加额外软件包
 git clone https://github.com/sbwml/luci-app-alist package/alist
 # Fix build for openwrt-21.02 branches (change golang 18.x)
-rm -rf feeds/packages/lang/golang
-svn export https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#svn export https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/rq1025330/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文

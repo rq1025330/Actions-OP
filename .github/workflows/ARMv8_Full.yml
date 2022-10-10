@@ -73,6 +73,7 @@ jobs:
         sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* adoptopenjdk* mysql* php* mongodb* dotnet* moby* snapd* || true
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
+        sudo -E apt-get -qq install libfuse-dev
         sudo -E apt-get -qq install rename
         sudo -E apt-get -qq install time
         sudo -E apt-get -qq autoremove --purge
