@@ -42,7 +42,7 @@ rm -rf feeds/packages/utils/syncthing
 
 # 添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+git clone https://github.com/sbwml/luci-app-alist package/alist
 git clone https://github.com/rq1025330/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
@@ -51,12 +51,9 @@ svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus pac
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/xiaozhuai/luci-app-filebrowser/branches/18.06 package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
-#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server #已同步Lienol
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-pptp-server package/luci-app-pptp-server #lean中包含
-#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat #已同步Lienol
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassistant package/luci-app-fileassistant
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns #lean中包含,feeds/packages/net
 #svn co https://github.com/kenzok8/jell/trunk/luci-app-syncthing package/luci-app-syncthing
@@ -66,6 +63,10 @@ cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn
 svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
 
 # 其他软件包
+#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server #已同步Lienol
+#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat #已同步Lienol
+#git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
 #svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
 #rm -rf feeds/packages/net/mosdns
@@ -105,18 +106,18 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
-#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core #替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs #可替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+#svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core
+#svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
+#svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
+#svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
 #svn co https://github.com/fw876/helloworld/trunk/tcping package/tcping
-#svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core #可替换passwall
-#svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin #替换passwall
+#svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
+#svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
+#svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
 
 svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk//luci-app-passwall2 package/luci-app-passwall2
@@ -125,10 +126,10 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/c
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks #与lean重复feeds/packages/net
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2tcp
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks #与lean重复
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks #与lean重复
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks #与lean重复feeds/packages/net
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks #与lean重复feeds/packages/net
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt #与lean重复
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt #与lean重复feeds/packages/net
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/sagernet-core package/sagernet-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
@@ -146,7 +147,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xra
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
 
 # 添加argon-config 最新argon v1.x.x 适配18.06和Lean Openwrt
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+#git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 svn co https://github.com/jerrykuku/luci-theme-argon/branches/18.06 package/luci-theme-argon
 
 # 添加themes
