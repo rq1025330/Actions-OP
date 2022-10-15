@@ -43,7 +43,7 @@ rm -rf feeds/packages/utils/syncthing
 # 添加额外软件包
 git clone https://github.com/sbwml/luci-app-alist package/alist
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone https://github.com/rq1025330/luci-app-autotimeset package/luci-app-autotimeset
+git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
