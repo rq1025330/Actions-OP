@@ -1,0 +1,19 @@
+(1).允许全频率（电压超至1.1v, 默认未开）开启方法：
+vi  /boot/armbianEnv.txt,把 overlays=uart7-m2 改为 overlays=uart7-m2 full-cpufreq
+
+(2).Rock5b Openwrt固件：采用5.10.149内核，并支持nvme（已测试）或usb启动（未测试）。
+如果需要nvme或usb启动，必须要先刷入spi 的bootloader, 用前两天发的 bootloader包：
+rock5b-bootloader_20221017.tar.gz
+
+警告：小白勿视
+rock5b的bootloader: 修改了启动顺序：tf->emmc->usb->nvme
+
+https://t.me/openwrt_flippy/3464
+
+(3).用法：
+1. 先刷入TF卡启动成功后，把img镜像上传到 /mnt/mmcblk0p4
+2. 进入TF卡里的openwrt,运行命令：
+cd  /mnt/mmcblk0p4
+dd if=openwrt-xxxxxx.img  of=/dev/nvme0n1  bs=1M conv=fsync
+3. 然后关机，把TF卡拔掉再开机即可。
+4. 用同一个镜像写的TF卡固件和nvme固件由于UUID相同，如果再重新插上TF卡启动会有问题，TF和nvme采用不同版本的固件就没问题。

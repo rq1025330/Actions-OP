@@ -35,7 +35,7 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/control
 # Alist-3.1.0 -> golang 1.18.x
 #cp -f $GITHUB_WORKSPACE/general/alist-3.1.0 package/alist
 
-# golang 1.19.x -> Alist-3.2.0
+# golang 1.19.x -> Alist-3.2.0 alist依赖1.19.x
 #rm -rf feeds/packages/lang/golang
 #cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
