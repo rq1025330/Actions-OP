@@ -72,7 +72,8 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartd
 #svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-syncthing package/luci-app-syncthing
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
-svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/utils/syncthing package/syncthing
+#svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
 
 # 其他软件包
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server #已同步Lienol
