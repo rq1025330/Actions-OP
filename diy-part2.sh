@@ -49,7 +49,7 @@ rm -rf feeds/packages/utils/syncthing
 
 # 添加额外软件包
 git clone https://github.com/sbwml/luci-app-alist package/alist
-# golang 1.19.x -> Alist-3.2.0 alist依赖1.19.x
+# Alist-3.2.0 依赖 1.19.x
 #rm -rf feeds/packages/lang/golang
 #cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
@@ -74,7 +74,7 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartd
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
 svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
-# syncthing 1.20.4 -> 1.22.0
+# Syncthing 1.20.4 -> 1.22.0 由于 golang 升级 1.19.X
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.0/g' package/syncthing/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9644e814b4c7844a59e4e7705c550361cb4ed6c36bf9b46617de386ee2dad45/g' package/syncthing/Makefile
 
