@@ -180,7 +180,7 @@ jobs:
         #sudo cp ./files/update*.sh ./output/
         sudo cp files/openwrt-install-amlogic output/openwrt-install-amlogic
         sudo cp files/openwrt-update-amlogic output/openwrt-update-amlogic
-        echo "::set-output name=status::success"
+        echo "{status}={success}" >> $GITHUB_OUTPUT
 
     - name: Organize files
       id: organize
@@ -190,7 +190,7 @@ jobs:
         pigz -9 -p $(nproc) *.img
 
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "::set-output name=status::success"
+        echo "{status}={success}" >> $GITHUB_OUTPUT
 
     - name: Check performance again
       run: |
