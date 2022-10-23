@@ -188,7 +188,6 @@ jobs:
       run: |
         cd /opt/openwrt_packit/output
         pigz -9 -p $(nproc) *.img
-
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "{status}={success}" >> $GITHUB_OUTPUT
 
