@@ -88,27 +88,23 @@ jobs:
       run: |
         df -hT $PWD
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        echo "{status}={success}" >> $GITHUB_OUTPUT
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
+        echo "{status}={success}" >> $GITHUB_OUTPUT
         useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
-#        echo "::set-env name=useVersionInfo::$useVersionInfo"
-#        echo "::set-env name=DATE::$(date "+%Y-%m-%d %H:%M:%S")"
-
-    #- name: Load custom feeds
-    #  run: |
-    #    [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-    #    chmod +x $DIY_P1_SH
-    #    cd openwrt
-    #    ../$DIY_P1_SH
-    
-    #- name: Cache acceleration #(7天内对应源码相同机型二次编译有效，每次只保留一个源码的缓存)
-    #  uses: klever1988/cachewrtbuild@main
-    #  with:
-    #    ccache: 'true'
-    #    prefix: ${{ github.workspace }}/openwrt
+        
+        
+    - name: Organize files
+      id: organize
+      if: steps.compile.$GITHUB_OUTPUT.status == 'success' && !cancelled()
+      run: |
+        cd $GITHUB_WORKSPACE/openwrt/package
+        tar -zcvf MIPS-AllPackages.tar.gz ./*
+        echo "{status}={success}" >> $GITHUB_OUTPUT
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -134,47 +130,10 @@ jobs:
       id: package
       run: |
         cd openwrt
-        echo "{status}={success}" >> $GITHUB_OUTPUT
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-        echo "{status}={success}" >> $GITHUB_OUTPUT
-        
-    - name: Organize files
-      id: organize
-      if: steps.compile.GITHUB_OUTPUT.status == 'success' && !cancelled()
-      run: |
-        cd $GITHUB_WORKSPACE/openwrt/bin/packages
-        tar -zcvf MIPS-AllPackages.tar.gz ./*
-        cp MIPS-AllPackages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
-        cd $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
-        cp $GITHUB_WORKSPACE/openwrt/.config $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
-        rename 's/.config/${{ env.PRODUCT_NAME }}.config/' .config
-        rm -rf packages sha256sums config.buildinfo feeds.buildinfo openwrt-armvirt-64-default.manifest openwrt-armvirt-64-Image openwrt-armvirt-64-rootfs-ext4.img version.buildinfo
-        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "{status}={success}" >> $GITHUB_OUTPUT
-#        echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config; make defconfig (加不加都可，加了编译速度更快，不过有时候编译出错可以去掉它，排除出错原因)
-
-    - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
-      uses: P3TERX/ssh2actions@main
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_TO }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-
-    - name: Compile the firmware
-      id: compile
-      run: |
-        cd openwrt
-        echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "{status}={success}" >> $GITHUB_OUTPUT
-        grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
-        [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
-        echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-        echo "DATE_YMD=_$(date +"%Y%m%d")" >> $GITHUB_ENV
-        echo "{status}={success}" >> $GITHUB_OUTPUT
 
 
     - name: Check performance again
@@ -194,42 +153,6 @@ jobs:
         echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
         echo "硬盘详情："
         df -Th
-
-    - name: Update config directory
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_CONFIG == 'true'
-      run: |
-        cd $GITHUB_WORKSPACE/openwrt
-        git clone -b master https://github.com/${{github.repository}}.git repo
-        #git clone --depth 1 https://github.com/${{github.repository}} -b master repo
-        cd repo
-        chk1=`cksum ${CONFIG_FILE} | awk -F" " '{print $1}'`
-        chk2=`cksum $GITHUB_WORKSPACE/openwrt/.config | awk -F" " '{print $1}'`
-        if [ $chk1 -eq $chk2 ]; then
-          echo "File is identical"
-        else
-          echo "File is not identical"
-          rm -rf ${CONFIG_FILE}.*
-          cp -Rf $GITHUB_WORKSPACE/openwrt/.config ${CONFIG_FILE}.${{ env.DATE1 }}
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git add .
-          git commit -m "update.config"
-          git push --force "https://${{ secrets.RELEASES_TOKEN }}@github.com/${{github.repository}}" HEAD:master
-        fi
-
-    - name: Upload bin directory
-      uses: actions/upload-artifact@master
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: openwrt/bin/targets/*/*/bin.tar.gz
-
-    - name: Upload firmware directory
-      uses: actions/upload-artifact@master
-      if: env.UPLOAD_FIRMWARE == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
-      with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: ${{ env.FIRMWARE }}
 
     - name: Create release
       id: release
