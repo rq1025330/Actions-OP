@@ -84,6 +84,7 @@ jobs:
         df -Th
 
     - name: Clone source code
+      id: compile
       working-directory: /workdir
       run: |
         df -hT $PWD
