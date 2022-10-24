@@ -100,7 +100,7 @@ jobs:
         
     - name: Organize files
       id: organize
-      if: steps.compile.$GITHUB_OUTPUT.status == 'success' && !cancelled()
+      if: steps.compile.GITHUB_OUTPUTS.status == 'success' && !cancelled()
       run: |
         cd $GITHUB_WORKSPACE/openwrt/package
         tar -zcvf MIPS-AllPackages.tar.gz ./*
