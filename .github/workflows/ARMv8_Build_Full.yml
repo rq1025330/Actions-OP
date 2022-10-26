@@ -129,6 +129,10 @@ jobs:
         #sudo ./mk_rk3328_l1pro_basic.sh
         #sudo ./mk_rk3328_l1pro_plus.sh
         #sudo ./mk_rk3328_l1pro_plusplus.sh
+        #sudo ./mk_rk3568_e25.sh
+        #sudo ./mk_rk3568_e25_basic.sh
+        #sudo ./mk_rk3568_e25_plus.sh
+        #sudo ./mk_rk3568_e25_plusplus.sh
         #sudo ./mk_rk3568_h68k.sh
         #sudo ./mk_rk3568_h68k_basic.sh
         #sudo ./mk_rk3568_h68k_plus.sh
@@ -141,10 +145,14 @@ jobs:
         #sudo ./mk_rk3568_r68s_basic.sh
         #sudo ./mk_rk3568_r68s_plus.sh
         #sudo ./mk_rk3568_r68s_plusplus.sh
+        #sudo ./mk_rk3568_h88k.sh
+        #sudo ./mk_rk3568_h88k_basic.sh
+        #sudo ./mk_rk3568_h88k_plus.sh
+        #sudo ./mk_rk3568_h88k_plusplus.sh
         #sudo ./mk_rk3588_rock5b.sh
         #sudo ./mk_rk3588_rock5b_basic.sh
         #sudo ./mk_rk3588_rock5b_plus.sh
-        #sudo ./mk_rk3588_rock5b_plusplus.sh         
+        #sudo ./mk_rk3588_rock5b_plusplus.sh
         #sudo ./mk_s905_mxqpro+.sh
         #sudo ./mk_s905_mxqpro+_basic.sh
         #sudo ./mk_s905_mxqpro+_plus.sh
@@ -172,7 +180,7 @@ jobs:
         #sudo ./mk_s922x_odroid-n2.sh
         #sudo ./mk_s922x_odroid-n2_basic.sh
         #sudo ./mk_s922x_odroid-n2_plus.sh
-        #sudo ./mk_s922x_odroid-n2_plusplus.sh      
+        #sudo ./mk_s922x_odroid-n2_plusplus.sh
         #sudo cp ./*AllPackages.tar.gz ./output/
         #sudo cp ./F-AllPackages.tar.gz ./output/
         #sudo cp ./SF-AllPackages.tar.gz ./output/
