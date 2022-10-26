@@ -44,6 +44,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645b
 rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
 
@@ -67,6 +68,8 @@ sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebro
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-pptp-server package/luci-app-pptp-server #lean中包含
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassistant package/luci-app-fileassistant
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns #lean中包含,feeds/packages/net
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns #lean中包含,feeds/packages/net
 #svn co https://github.com/kenzok8/jell/trunk/luci-app-syncthing package/luci-app-syncthing
@@ -86,9 +89,6 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9644e814b4c7844a59e4e7705c550361cb4ed6c36bf9b4
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
 #svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
-#rm -rf feeds/packages/net/mosdns
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
 
 # 添加Amlogic Service
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
