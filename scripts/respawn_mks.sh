@@ -1,15 +1,23 @@
 #!/bin/bash
 
 cd /opt/openwrt_packit
+cp make.env makebasic.env
 cp make.env makeplus.env
 cp make.env makeplusplus.env
 
 #sync the kernel version
-#KV=$(find /opt/kernel/ -name "boot*+o.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
-KV=$(find /opt/kernel/ -name "boot*5\.15*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
-#KPV=$(find /opt/kernel/ -name "boot*5\.15*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
-KPPV=$(find /opt/kernel/ -name "boot*6\.0*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
-sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KV\"/" make.env
+BV=$(find /opt/kernel/ -name "boot*+o.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
+#PV=$(find /opt/kernel/ -name "boot*5\.15*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
+PPV=$(find /opt/kernel/ -name "boot*6\.0*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
+
+echo "$BV" > BV.txt
+#echo "$PV" > PV.txt
+echo "$PPV" > PPV.txt
+KBV=$(sed -n '$p' BV.txt)
+#KPV=$(sed -n '$p' PV.txt)
+KPPV=$(sed -n '$p' PPV.txt)
+
+sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KBV\"/" makebasic.env
 #sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPV\"/" makeplus.env
 sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPPV\"/" makeplusplus.env
 
@@ -18,6 +26,7 @@ sed -i 's?FDT=/dtb/amlogic/meson-sm1-x96-max-plus-100m.dtb?#FDT=/dtb/amlogic/mes
 sed -i 's?#FDT=/dtb/amlogic/meson-sm1-hk1box-vontar-x3.dtb?FDT=/dtb/amlogic/meson-sm1-hk1box-vontar-x3.dtb?g' mk_s905x3_multi.sh
 
 for F in *.sh ; do cp $F ${F%.sh}_basic.sh && cp $F ${F%.sh}_plus.sh && cp $F ${F%.sh}_plusplus.sh;done
+find ./* -maxdepth 1 -path "*_basic.sh" | xargs -i sed -i 's/make\.env/makebasic\.env/g' {}
 #find ./* -maxdepth 1 -path "*_plus.sh" | xargs -i sed -i 's/make\.env/makeplus\.env/g' {}
 find ./* -maxdepth 1 -path "*_plusplus.sh" | xargs -i sed -i 's/make\.env/makeplusplus\.env/g' {}
 
