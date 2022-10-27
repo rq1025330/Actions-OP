@@ -17,9 +17,9 @@ echo "$PPV" > PPV.txt
 #KPV=$(awk 'NR==1 {print}' PV.txt)
 #KPPV=$(head -n 1 PPV.txt)
 
-KBV=$(awk 'NR==1 {print}' BV.txt)
-#KPV=$(awk 'NR==1 {print}' PV.txt)
-KPPV=$(awk 'NR==1 {print}' PPV.txt)
+KBV=$(sed -n '1p' BV.txt)
+#KPV=$(sed -n '1p' PV.txt)
+KPPV=$(sed -n '1p' PPV.txt)
 
 sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KBV\"/" makebasic.env
 #sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPV\"/" makeplus.env
