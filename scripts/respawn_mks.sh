@@ -13,9 +13,13 @@ PPV=$(find /opt/kernel/ -name "boot*6\.0*+.tar.gz" | awk -F '[-.]' '{print $2"."
 echo "$BV" > BV.txt
 #echo "$PV" > PV.txt
 echo "$PPV" > PPV.txt
-KBV=$(sed -n '1p' BV.txt)
+#KBV=$(sed -n '1p' BV.txt)
 #KPV=$(awk 'NR==1 {print}' PV.txt)
-KPPV=$(head -n 1 PPV.txt)
+#KPPV=$(head -n 1 PPV.txt)
+
+KBV=$(awk 'NR==1 {print}' BV.txt)
+#KPV=$(awk 'NR==1 {print}' PV.txt)
+KPPV=$(awk 'NR==1 {print}' PPV.txt)
 
 sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KBV\"/" makebasic.env
 #sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPV\"/" makeplus.env
