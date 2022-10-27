@@ -97,8 +97,6 @@ jobs:
         sudo mkdir /opt/kernel
         #sudo cp $GITHUB_WORKSPACE/BuildARMv8/* /opt/kernel/
         sudo cp $GITHUB_WORKSPACE/BuildARMv8/*.*/*.tar.gz /opt/kernel/
-        #sudo ll
-        sudo ls -l | awk '{print $9}' | sort -k1.1nr
         #cd /opt/kernel
         #sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/71531609| grep browser_download_url | cut -d '"' -f 4)
         cd /opt
