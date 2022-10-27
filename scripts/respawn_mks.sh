@@ -6,14 +6,14 @@ cp make.env makeplus.env
 cp make.env makeplusplus.env
 
 #sync the kernel version
-#BV=$(find /opt/kernel/ -name "boot*+o.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
-BV=$(find /opt/kernel/ -name "boot*5.15*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
+BV=$(find /opt/kernel/ -name "boot*+o.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
 #PV=$(find /opt/kernel/ -name "boot*5\.15*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
 PPV=$(find /opt/kernel/ -name "boot*6\.0*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
 
 echo "$BV" > BV.txt
 #echo "$PV" > PV.txt
 echo "$PPV" > PPV.txt
+
 #KBV=$(sed -n '1p' BV.txt)
 #KPV=$(awk 'NR==1 {print}' PV.txt)
 #KPPV=$(head -n 1 PPV.txt)
