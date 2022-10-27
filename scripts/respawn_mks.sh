@@ -14,10 +14,6 @@ echo "$BV" > BV.txt
 #echo "$PV" > PV.txt
 echo "$PPV" > PPV.txt
 
-#KBV=$(sed -n '$p' BV.txt)
-#KPV=$(awk 'END {print}' PV.txt)
-#KPPV=$(tail -n 1 PPV.txt)
-
 KBV=$(sed -n '$p' BV.txt)
 #KPV=$(sed -n '$p' PV.txt)
 KPPV=$(sed -n '$p' PPV.txt)
