@@ -14,13 +14,13 @@ echo "$BV" > BV.txt
 #echo "$PV" > PV.txt
 echo "$PPV" > PPV.txt
 
-#KBV=$(sed -n '1p' BV.txt)
-#KPV=$(awk 'NR==1 {print}' PV.txt)
-#KPPV=$(head -n 1 PPV.txt)
+#KBV=$(sed -n '$p' BV.txt)
+#KPV=$(awk 'END {print}' PV.txt)
+#KPPV=$(tail -n 1 PPV.txt)
 
-KBV=$(sed -n '1p' BV.txt)
-#KPV=$(sed -n '1p' PV.txt)
-KPPV=$(sed -n '1p' PPV.txt)
+KBV=$(sed -n '$p' BV.txt)
+#KPV=$(sed -n '$p' PV.txt)
+KPPV=$(sed -n '$p' PPV.txt)
 
 sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KBV\"/" makebasic.env
 #sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPV\"/" makeplus.env
