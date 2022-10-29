@@ -10,13 +10,17 @@ BV=$(find /opt/kernel/ -name "boot*+o.tar.gz" | awk -F '[-.]' '{print $2"."$3"."
 #PV=$(find /opt/kernel/ -name "boot*5\.15*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
 PPV=$(find /opt/kernel/ -name "boot*6\.0*+.tar.gz" | awk -F '[-.]' '{print $2"."$3"."$4"-"$5"-"$6}')
 
-echo "$BV" > BV.txt
-#echo "$PV" > PV.txt
-echo "$PPV" > PPV.txt
+echo "$BV" > B
+#echo "$PV" > P
+echo "$PPV" > PP
 
-KBV=$(sed -n '$p' BV.txt)
-#KPV=$(sed -n '$p' PV.txt)
-KPPV=$(sed -n '1p' PPV.txt)
+sort B > BV
+#sort P > PV
+sort PP > PPV
+
+KBV=$(sed -n '$p' BV)
+#KPV=$(sed -n '$p' PV)
+KPPV=$(sed -n '$p' PPV)
 
 sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KBV\"/" makebasic.env
 #sed -i "s/^    KERNEL_VERSION.*/    KERNEL_VERSION=\"$KPV\"/" makeplus.env
