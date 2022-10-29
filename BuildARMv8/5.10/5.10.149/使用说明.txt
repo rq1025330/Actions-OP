@@ -7,7 +7,6 @@ rock5b-bootloader_20221017.tar.gz
 
 警告：小白勿视
 rock5b的bootloader: 修改了启动顺序：tf->emmc->usb->nvme
-
 https://t.me/openwrt_flippy/3464
 
 (3).用法：
