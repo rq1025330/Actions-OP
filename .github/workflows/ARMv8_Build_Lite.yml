@@ -29,7 +29,7 @@ env:
   DIY_P2_SH: diy-part2.sh
   MRG_ADD_SH: aarch64/ARMv8.sh
   Update_Ver_SH: aarch64/autoVersion.sh
-#   SSH_ACTIONS: false
+#  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
