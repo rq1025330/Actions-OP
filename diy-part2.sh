@@ -133,7 +133,7 @@ svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
 
 svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall2/trunk//luci-app-passwall2 package/luci-app-passwall2
+svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks #与lean重复feeds/packages/net
