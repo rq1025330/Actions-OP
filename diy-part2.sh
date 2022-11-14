@@ -39,7 +39,7 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/control
 
 # conntrack-tools build failed back to 1.4.6
 rm -rf feeds/packages/net/conntrack-tools
-cp -f $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net
+cp -f $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net/
 
 
 # 移除不用软件包
