@@ -37,6 +37,10 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/control
 #sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 
+# conntrack-tools build failed back to 1.4.6
+rm -rf feeds/packages/net/conntrack-tools
+cp -f $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net
+
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
@@ -76,7 +80,6 @@ svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syn
 # Golang 1.18.x -> 1.19.x（Syncthing-1.22.0 依赖 1.19.x）
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.0/g' package/syncthing/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9644e814b4c7844a59e4e7705c550361cb4ed6c36bf9b46617de386ee2dad45/g' package/syncthing/Makefile
-
 
 # 其他软件包
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server #已同步Lienol
