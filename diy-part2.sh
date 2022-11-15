@@ -38,8 +38,8 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/control
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 
 # conntrack-tools build failed back to 1.4.6
-rm -rf feeds/packages/net/conntrack-tools
-cp -r $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net
+#rm -rf feeds/packages/net/conntrack-tools
+#cp -r $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
