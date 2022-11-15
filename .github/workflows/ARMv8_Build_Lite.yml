@@ -90,7 +90,7 @@ jobs:
         KERNEL_VERSION_NAME: 5.15.78_6.0.8
         KERNEL_REPO_URL: https://github.com/${{github.repository}}/tree/master/BuildARMv8
         WHOAMI: RQ
-        #OPENWRT_VER: R21.12.1
+        #OPENWRT_VER: R22.10.10
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
 
