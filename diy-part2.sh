@@ -41,8 +41,8 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/control
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.15.0/g' feeds/packages/net/verysync/Makefile
 
 # conntrack-tools build failed back to 1.4.6
-rm -rf feeds/packages/net/conntrack-tools
-cp -r $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net
+#rm -rf feeds/packages/net/conntrack-tools
+#cp -r $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net
 
 
 # 移除不用软件包
