@@ -126,6 +126,7 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/redsocks2
 #svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
@@ -142,11 +143,11 @@ svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-pass
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks #与lean重复feeds/packages/net
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2tcp
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks #与lean重复feeds/packages/net
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks #与lean重复feeds/packages/net
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt #与lean重复feeds/packages/net
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/sagernet-core package/sagernet-core
