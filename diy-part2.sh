@@ -38,7 +38,7 @@ sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/control
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 
 # Verysync 2.13.2 -> 2.15.0
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.15.0/g' feeds/packages/net/verysync/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.15.0/g' feeds/packages/net/verysync/Makefile
 
 # conntrack-tools build failed back to 1.4.6
 #rm -rf feeds/packages/net/conntrack-tools
