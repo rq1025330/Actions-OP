@@ -16,33 +16,22 @@
 # Delete default password
 #sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
 
-# Readd cpufreq for aarch64 & Change to system
-#sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(aarch64\|\|arm\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
-#sed -i 's/services/system/g' feeds/luci/applications/luci-app-cpufreq/luasrc/controller/cpufreq.lua #CPU性能调节-->系统
-
-# Replace coremark.sh with the new one
-#cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
-
 # Default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' feeds/luci/collections/luci/Makefile
 
 # Autocore
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 
+# Replace coremark.sh with the new one
+#cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
+
 # OpenConnect Change to system
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
-# Golang 1.18.x -> 1.19.x（Alist 3.2.0 依赖 1.19.x）
+# Golang 1.18.x -> 1.19.x
 #sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
 #sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
-
-# Verysync 2.13.2 -> 2.15.0
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.15.0/g' feeds/packages/net/verysync/Makefile
-
-# conntrack-tools build failed back to 1.4.6
-#rm -rf feeds/packages/net/conntrack-tools
-#cp -r $GITHUB_WORKSPACE/general/conntrack-tools feeds/packages/net
 
 
 # 移除不用软件包
@@ -55,10 +44,6 @@ rm -rf feeds/packages/utils/syncthing
 
 # 添加额外软件包
 git clone https://github.com/sbwml/luci-app-alist package/alist
-# Golang 1.18.x -> 1.19.x（Alist 3.2.0 依赖 1.19.x）
-sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
-sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
@@ -80,9 +65,6 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartd
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
 svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
-# Golang 1.18.x -> 1.19.x（Syncthing 1.22.0 依赖 1.19.x）
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.0/g' package/syncthing/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9644e814b4c7844a59e4e7705c550361cb4ed6c36bf9b46617de386ee2dad45/g' package/syncthing/Makefile
 
 # 其他软件包
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ipsec-server package/luci-app-ipsec-server #已同步Lienol
