@@ -81,8 +81,8 @@ jobs:
 #        echo "::set-env name=DATE::$(date "+%Y-%m-%d %H:%M:%S")"
 
     - name: Package Armvirt as OpenWrt
-      uses: unifreq/openwrt_packit@master
-    #  uses: ophub/flippy-openwrt-actions@main
+    #  uses: unifreq/openwrt_packit@master
+      uses: ophub/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: https://github.com/${{github.repository}}/releases/download/Files4Build_Lite/openwrt-armvirt-64-default-rootfs.tar.gz
         #PACKAGE_SOC: vplus_dockerimgs_beikeyun_l1pro_s905_s905d_s905x2_s905x3_s912_s922x_s922x-n2
