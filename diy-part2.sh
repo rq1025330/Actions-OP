@@ -39,6 +39,7 @@ rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
+rm -rf feeds/packages/net/amule
 
 # 添加额外软件包
 git clone https://github.com/sbwml/luci-app-alist package/alist
@@ -47,18 +48,20 @@ git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-auto
 git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
-svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus package/luci-app-wolplus
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/xiaozhuai/luci-app-filebrowser/branches/18.06 package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-pptp-server package/luci-app-pptp-server #lean中包含
+svn co https://github.com/immortalwrt/packages/trunk/net/amule package/amule
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassistant package/luci-app-fileassistant
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns #lean中包含,feeds/packages/net
+svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
 svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
+svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus package/luci-app-wolplus
+
 
 # 其他软件包
 #git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
