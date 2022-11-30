@@ -117,9 +117,9 @@ jobs:
         #sudo ./mk_openwrt_dockerimg_plus.sh
         #sudo ./mk_openwrt_dockerimg_plusplus.sh
         #sudo ./mk_qemu-aarch64_img.sh
-        sudo ./mk_qemu-aarch64_img_basic.sh
+        #sudo ./mk_qemu-aarch64_img_basic.sh
         #sudo ./mk_qemu-aarch64_img_plus.sh
-        sudo ./mk_qemu-aarch64_img_plusplus.sh
+        #sudo ./mk_qemu-aarch64_img_plusplus.sh
         #sudo ./mk_rk3328_beikeyun.sh
         #sudo ./mk_rk3328_beikeyun_basic.sh
         #sudo ./mk_rk3328_beikeyun_plus.sh
