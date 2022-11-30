@@ -104,7 +104,7 @@ jobs:
         sudo chmod +x ./respawn_mks.sh
         sudo ./respawn_mks.sh
         cd /opt/openwrt_packit
-        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/84545860 | grep browser_download_url | cut -d '"' -f 4)
+        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/84552682 | grep browser_download_url | cut -d '"' -f 4)
         chmod +x $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo cp $GITHUB_WORKSPACE/scripts/whoami ./
