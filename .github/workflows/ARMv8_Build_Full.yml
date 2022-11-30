@@ -183,7 +183,7 @@ jobs:
         #sudo cp ./*AllPackages.tar.gz ./output/
         #sudo cp ./F-AllPackages.tar.gz ./output/
         #sudo cp ./SF-AllPackages.tar.gz ./output/
-        sudo cp ./Full-AllPackages.tar.gz ./output/
+        #sudo cp ./Full-AllPackages.tar.gz ./output/
         #sudo cp ./files/update*.sh ./output/
         sudo cp files/openwrt-install-amlogic output/openwrt-install-amlogic
         sudo cp files/openwrt-update-amlogic output/openwrt-update-amlogic
