@@ -14,9 +14,9 @@ echo "$BV" > B
 #echo "$PV" > P
 echo "$PPV" > PP
 
-sort B > BV
-#sort P > PV
-sort PP > PPV
+sort -n -k 3 -t '.' B > BV
+#sort -n -k 3 -t '.' P > PV
+sort -n -k 3 -t '.' PP > PPV
 
 KBV=$(sed -n '$p' BV)
 #KPV=$(sed -n '$p' PV)
