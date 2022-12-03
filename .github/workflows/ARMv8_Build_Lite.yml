@@ -96,16 +96,15 @@ jobs:
         echo $PWD
         sudo mkdir /opt/kernel
         sudo cp $GITHUB_WORKSPACE/BuildARMv8/*/*.tar.gz /opt/kernel/
-        #cd /opt/kernel
-        #sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/71531609| grep browser_download_url | cut -d '"' -f 4)
         cd /opt
-        sudo cp $GITHUB_WORKSPACE/scripts/respawn_mks.sh ./
-        sudo git clone https://github.com/unifreq/openwrt_packit
-        sudo chmod +x ./respawn_mks.sh
-        sudo ./respawn_mks.sh
+        sudo git clone https://github.com/unifreq/openwrt_packit 
         cd /opt/openwrt_packit
         sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/53781253 | grep browser_download_url | cut -d '"' -f 4)
         rename 's/Lite-openwrt/openwrt/' Lite-openwrt*gz
+        cd /opt 
+        sudo cp $GITHUB_WORKSPACE/scripts/respawn_mks.sh ./
+        sudo chmod +x ./respawn_mks.sh
+        sudo ./respawn_mks.sh
         chmod +x $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo cp $GITHUB_WORKSPACE/scripts/whoami ./

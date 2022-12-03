@@ -35,10 +35,17 @@ find ./* -maxdepth 1 -path "*_basic.sh" | xargs -i sed -i 's/make\.env/makebasic
 #find ./* -maxdepth 1 -path "*_plus.sh" | xargs -i sed -i 's/make\.env/makeplus\.env/g' {}
 find ./* -maxdepth 1 -path "*_plusplus.sh" | xargs -i sed -i 's/make\.env/makeplusplus\.env/g' {}
 
-#统一用Full打包
+#统一打包
 find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i 's/OP_ROOT_TGZ=\"openwrt/OP_ROOT_TGZ=\"openwrt/g' {}
-find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i '/^TGT_IMG.*img\"$/s/\.img/\_Full\.img/g' {}
 
+#判别打包后缀
+if [  -f "Full*gz"  ]; then
+  echo "File is Full"
+  find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i '/^TGT_IMG.*img\"$/s/\.img/\_Full\.img/g' {}
+else
+  echo "File is Lite"
+  find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i '/^TGT_IMG.*img\"$/s/\.img/\_Lite\.img/g' {}
+fi
 
 #旧内核新内核分开打包，修改后缀
 #12以后内核无法使用SFE，使用仅含FOL的固件进行打包
