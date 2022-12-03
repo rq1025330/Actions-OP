@@ -39,7 +39,7 @@ find ./* -maxdepth 1 -path "*_plusplus.sh" | xargs -i sed -i 's/make\.env/makepl
 find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i 's/OP_ROOT_TGZ=\"openwrt/OP_ROOT_TGZ=\"openwrt/g' {}
 
 #判别打包后缀
-if [  -f "Full*gz"  ]; then
+if [  -f "Full-AllPackages.tar.gz"  ]; then
   echo "File is Full"
   find ./*_basic.sh ./*_plus.sh ./*_plusplus.sh -maxdepth 1 -path "*" | xargs -i sed -i '/^TGT_IMG.*img\"$/s/\.img/\_Full\.img/g' {}
 else
