@@ -182,9 +182,8 @@ jobs:
         #sudo ./mk_s922x_odroid-n2_plus.sh
         #sudo ./mk_s922x_odroid-n2_plusplus.sh
         #sudo cp ./*AllPackages.tar.gz ./output/
-        #sudo cp ./F-AllPackages.tar.gz ./output/
-        #sudo cp ./SF-AllPackages.tar.gz ./output/
         sudo cp ./Lite-AllPackages.tar.gz ./output/
+        rename 's/openwrt/Lite-openwrt/' openwrt*gz
         #sudo cp ./files/update*.sh ./output/
         sudo cp files/openwrt-install-amlogic output/openwrt-install-amlogic
         sudo cp files/openwrt-update-amlogic output/openwrt-update-amlogic
