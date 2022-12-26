@@ -99,7 +99,7 @@ jobs:
         cd /opt
         sudo git clone https://github.com/unifreq/openwrt_packit
         cd /opt/openwrt_packit
-        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/71531609 | grep browser_download_url | cut -d '"' -f 4)
+        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/88457592 | grep browser_download_url | cut -d '"' -f 4)
         #rename 's/Full-openwrt/openwrt/' Full-openwrt*gz
         cd /opt
         sudo cp $GITHUB_WORKSPACE/scripts/respawn_mks.sh ./
