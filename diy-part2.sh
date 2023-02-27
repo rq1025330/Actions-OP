@@ -102,9 +102,13 @@ git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖 
 
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+#svn co https://github.com/fw876/helloworld/trunk/chinadns-ng package/chinadns-ng
+#svn co https://github.com/fw876/helloworld/trunk/dns2socks package/dns2socks
 #svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
+#svn co https://github.com/fw876/helloworld/trunk/ipt2socks package/ipt2socks
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
+#svn co https://github.com/fw876/helloworld/trunk/microsocks package/microsocks
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/redsocks2
 #svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core
@@ -116,12 +120,14 @@ svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/redsocks2
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
+#svn co https://github.com/fw876/helloworld/trunk/v2raya package/v2raya
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
 
 svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
+cp -rf $GITHUB_WORKSPACE/general/brook package/brook
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2tcp
@@ -141,7 +147,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/tro
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-core package/v2ray-core
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata #与lean重复feeds/packages/net
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
