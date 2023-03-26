@@ -105,6 +105,7 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #svn co https://github.com/fw876/helloworld/trunk/chinadns-ng package/chinadns-ng
 #svn co https://github.com/fw876/helloworld/trunk/dns2socks package/dns2socks
 #svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
+svn co https://github.com/fw876/helloworld/trunk/gn package/gn
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
 #svn co https://github.com/fw876/helloworld/trunk/ipt2socks package/ipt2socks
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
