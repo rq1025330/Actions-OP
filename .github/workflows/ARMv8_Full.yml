@@ -45,8 +45,7 @@ jobs:
     #  run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}开始编译
       
     - name: Checkout
-      uses: actions/checkout@master
- 
+      uses: actions/checkout@master 
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
