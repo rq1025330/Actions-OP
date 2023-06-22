@@ -1,8 +1,8 @@
 name: ARMv8_Full
 
 on:
-  workflow_dispatch:
   repository_dispatch:
+  workflow_dispatch:
 #  release:
 #    types: published
     inputs:
@@ -46,7 +46,7 @@ jobs:
       
     - name: Checkout
       uses: actions/checkout@master
-
+  
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
