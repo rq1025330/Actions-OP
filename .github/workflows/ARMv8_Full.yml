@@ -46,11 +46,11 @@ jobs:
       
     - name: Checkout
       uses: actions/checkout@master
-
+ 
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
-      run: |
+      run: |      
         docker rmi `docker images -q`
         [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /etc/mysql /etc/php /usr/local/lib/android /opt/ghc
