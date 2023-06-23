@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 # Delete default password
 #sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
@@ -158,7 +158,7 @@ git clone https://github.com/kenzok78/luci-app-argonne-config package/luci-app-a
 git clone https://github.com/kenzok78/luci-theme-argonne package/luci-theme-argonne
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-neobird package/luci-theme-neobird
+svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-neobird
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-theme-opentomato
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-theme-opentomcat
 # fix luci-theme-opentomcat dockerman icon missing
