@@ -164,8 +164,8 @@ svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-n
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-theme-opentomato
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-theme-opentomcat
 # fix luci-theme-opentomcat dockerman icon missing
-rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
-cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
+#rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
+cp -rf $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
 sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
