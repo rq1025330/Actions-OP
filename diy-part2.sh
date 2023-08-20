@@ -84,7 +84,7 @@ sed -i "s|https.*/OpenWrt|https://github.com/rq1025330/Actions-OP|g" package/luc
 # 3.Set the suffix of the OPENWRT files in your github.com Releases（Releases 里 OpenWrt 文件的后缀）
 sed -i "s|.img.gz|_Full.img.gz|g" package/luci-app-amlogic/root/etc/config/amlogic
 # 4.Set the download path of the kernel in your github.com repository（OpenWrt 内核的下载路径）
-sed -i "s|opt/kernel|BuildARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|opt/kernel|BuildARMv8/*/|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 #添加易有云 DDNSTO istore
 git clone https://github.com/linkease/nas-packages.git package/nas-packages
@@ -120,6 +120,7 @@ svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/redsocks2
 #svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
 #svn co https://github.com/fw876/helloworld/trunk/tcping package/tcping
 #svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
+svn co https://github.com/fw876/helloworld/trunk/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
