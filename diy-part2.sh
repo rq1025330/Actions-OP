@@ -76,15 +76,19 @@ svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus pac
 
 # 添加Amlogic Service
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+
 # Modify the default configuration of Amlogic Box
 # 1.Set the download repository of the OpenWrt files to your github.com（OpenWrt 文件的下载仓库）
 sed -i "s|https.*/OpenWrt|https://github.com/rq1025330/Actions-OP|g" package/luci-app-amlogic/root/etc/config/amlogic
+
 # 2.Set the keywords of Tags in your github.com Releases（Releases 里 Tags 的关键字）
 #sed -i "s|ARMv8|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
+
 # 3.Set the suffix of the OPENWRT files in your github.com Releases（Releases 里 OpenWrt 文件的后缀）
 sed -i "s|.img.gz|_Full.img.gz|g" package/luci-app-amlogic/root/etc/config/amlogic
+
 # 4.Set the download path of the kernel in your github.com repository（OpenWrt 内核的下载路径）
-sed -i "s|opt/kernel|BuildARMv8/*/|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|opt/kernel|https://github.com/breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 #添加易有云 DDNSTO istore
 git clone https://github.com/linkease/nas-packages.git package/nas-packages
