@@ -110,7 +110,7 @@ jobs:
           Full版：大全版_本地编译底包
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           参见 Files4Build_Full 内记录
-          **Full版**---->[下载](https://github.com/rq1025330/Actions-OP/releases/tag/ARMv8_Full)
+          **Full_Local版**---->[下载](https://github.com/rq1025330/Actions-OP/releases/tag/ARMv8_Full)
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
     
     - name: Telegram notification
