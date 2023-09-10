@@ -51,7 +51,7 @@ rm -rf feeds/packages/utils/syncthing
 # 临时rust 1.68.1-->1.7.2
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.72.0/g' feeds/packages/lang/rust/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/g' feeds/packages/lang/rust/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=EA9D61BBB51D76B6EA681156F69F0E0596B59722F04414B01C6E100B4B5BE3A1/g' feeds/packages/lang/rust/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=ea9d61bbb51d76b6ea681156f69f0e0596b59722f04414b01c6e100b4b5be3a/g' feeds/packages/lang/rust/Makefile
 
 # 添加额外软件包
 git clone https://github.com/sbwml/luci-app-alist package/alist
