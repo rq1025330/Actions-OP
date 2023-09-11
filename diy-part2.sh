@@ -49,9 +49,14 @@ rm -rf feeds/packages/utils/syncthing
 
 
 # 临时rust 1.68.1-->1.7.2
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.72.0/g' feeds/packages/lang/rust/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/g' feeds/packages/lang/rust/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=ea9d61bbb51d76b6ea681156f69f0e0596b59722f04414b01c6e100b4b5be3a/g' feeds/packages/lang/rust/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.72.0/g' feeds/packages/lang/rust/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/g' feeds/packages/lang/rust/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=ea9d61bbb51d76b6ea681156f69f0e0596b59722f04414b01c6e100b4b5be3a/g' feeds/packages/lang/rust/Makefile
+
+curl -o ./feeds/packages/lang/rust/rust-values.mk https://raw.githubusercontent.com/Jason6111/packages/patch-1/lang/rust/rust-values.mk
+curl -o ./feeds/packages/lang/rust/Makefile https://raw.githubusercontent.com/Jason6111/OpenWrt_Personal/main/other/rust/Makefile
+curl -o ./feeds/packages/lang/rust/patches/0001-Update-xz2-and-use-it-static.patch https://raw.githubusercontent.com/Jason6111/OpenWrt_Personal/main/other/rust/0001-Update-xz2-and-use-it-static.patch
+
 
 # 添加额外软件包
 git clone https://github.com/sbwml/luci-app-alist package/alist
