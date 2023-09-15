@@ -57,8 +57,8 @@ jobs:
         #docker-images: true
         #dotnet: false
         haskell: true
-        large-packages: true
-        swap-storage: true
+        #large-packages: true
+        #swap-storage: true
       
     - name: Checkout
       uses: actions/checkout@master
