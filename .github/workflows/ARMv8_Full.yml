@@ -111,12 +111,6 @@ jobs:
     #    chmod +x $DIY_P1_SH
     #    cd openwrt
     #    ../$DIY_P1_SH
-    
-    #- name: Cache acceleration #(7天内对应源码相同机型二次编译有效，每次只保留一个源码的缓存)
-    #  uses: klever1988/cachewrtbuild@main
-    #  with:
-    #    ccache: 'true'
-    #    prefix: ${{ github.workspace }}/openwrt
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -146,7 +140,9 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-#        echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config; make defconfig (加不加都可，加了编译速度更快，不过有时候编译出错可以去掉它，排除出错原因)
+        rm -rf $GITHUB_WORKSPACE/.git
+        rm -rf $GITHUB_WORKSPACE/opt
+        df -Th
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
