@@ -124,9 +124,9 @@ svn co https://github.com/fw876/helloworld/trunk/tuic-client package/tuic-client
 git clone https://github.com/xiaorouji/openwrt-passwall.git  package/luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall2.git  package/luci-app-passwall2
 
-svn co https://github.com/immortalwrt/packages/trunk/net/brook package/brook
-#svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/brook package/brook
+#svn co https://github.com/immortalwrt/packages/trunk/net/brook package/brook
 #cp -rf $GITHUB_WORKSPACE/general/brook package/brook
+svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/brook package/brook
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/chinadns-ng package/chinadns-ng
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/dns2socks package/dns2socks
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/dns2tcp package/dns2tcp
@@ -146,15 +146,14 @@ svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/trojan-plus 
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/tuic-client package/tuic-client
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-core package/v2ray-core
+cp -rf $GITHUB_WORKSPACE/general/v2ray-core package/v2ray-core
 #svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-geodata package/v2ray-geodata #与lean重复feeds/packages/net
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-plugin package/v2ray-plugin
+cp -rf $GITHUB_WORKSPACE/general/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-core package/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-plugin package/xray-plugin
 
-# v2ray-plugin编译报错
-pushd feeds/packages/lang
-rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang
-popd
+
 
 # 添加themes
 git clone https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
