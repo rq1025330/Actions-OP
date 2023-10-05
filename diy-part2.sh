@@ -151,6 +151,11 @@ svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-core package/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-plugin package/xray-plugin
 
+# v2ray-plugin编译报错
+pushd feeds/packages/lang
+rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang
+popd
+
 # 添加themes
 git clone https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
 git clone https://github.com/kenzok78/luci-theme-argonne package/luci-theme-argonne
