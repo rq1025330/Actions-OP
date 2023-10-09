@@ -146,10 +146,10 @@ svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/trojan-plus 
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/tuic-client package/tuic-client
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-core package/v2ray-core
-cp -rf $GITHUB_WORKSPACE/general/v2ray-core package/v2ray-core
+#cp -rf $GITHUB_WORKSPACE/general/v2ray-core package/v2ray-core
 #svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-geodata package/v2ray-geodata #与lean重复feeds/packages/net
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-plugin package/v2ray-plugin
-cp -rf $GITHUB_WORKSPACE/general/v2ray-plugin package/v2ray-plugin
+#cp -rf $GITHUB_WORKSPACE/general/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-core package/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-plugin package/xray-plugin
 
