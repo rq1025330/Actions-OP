@@ -102,13 +102,14 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #svn co https://github.com/fw876/helloworld/trunk/chinadns-ng package/chinadns-ng
 #svn co https://github.com/fw876/helloworld/trunk/dns2socks package/dns2socks
 #svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
-svn co https://github.com/fw876/helloworld/trunk/gn package/gn
+#svn co https://github.com/fw876/helloworld/trunk/gn package/gn
 #svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
 #svn co https://github.com/fw876/helloworld/trunk/ipt2socks package/ipt2socks
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
 #svn co https://github.com/fw876/helloworld/trunk/microsocks package/microsocks
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/redsocks2
+svn co https://github.com/fw876/helloworld/trunk/shadow-tls package/shadow-tls
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
 #svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
@@ -131,6 +132,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/brook packag
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/chinadns-ng package/chinadns-ng
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/dns2socks package/dns2socks
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/dns2tcp package/dns2tcp
+svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/gn package/gn
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/hysteria package/hysteria
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/ipt2socks package/ipt2socks
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/microsocks package/microsocks
@@ -153,8 +155,6 @@ svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-plugin
 #cp -rf $GITHUB_WORKSPACE/general/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-core package/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-plugin package/xray-plugin
-
-
 
 # 添加themes
 git clone https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
