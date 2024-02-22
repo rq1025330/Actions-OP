@@ -42,12 +42,12 @@ rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
 
 # 添加额外软件包
-git clone https://github.com/sbwml/luci-app-alist package/alist
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
-git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
-git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
-git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
+git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
+git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+git clone --depth=1 https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
+git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone --depth=1 https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 git clone -b 18.06 https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
@@ -93,10 +93,10 @@ sed -i "s|ARMv8|ARMv8_Full|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|opt/kernel|https://github.com/breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 #添加易有云 DDNSTO istore
-git clone https://github.com/linkease/nas-packages.git package/nas-packages
-git clone https://github.com/linkease/nas-packages-luci.git package/nas-packages-luci
-git clone https://github.com/linkease/istore-ui.git package/istore-ui
-git clone https://github.com/linkease/istore.git package/istore
+git clone --depth=1 https://github.com/linkease/nas-packages.git package/nas-packages
+git clone --depth=1 https://github.com/linkease/nas-packages-luci.git package/nas-packages-luci
+git clone --depth=1 https://github.com/linkease/istore-ui.git package/istore-ui
+git clone --depth=1 https://github.com/linkease/istore.git package/istore
 sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
 
 git clone --depth=1 https://github.com/vernesong/OpenClash.git
@@ -108,8 +108,10 @@ make && sudo make install
 popd
 
 # 添加vssr&ssr-plus&passwall
-git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
-git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖 
+git clone --depth=1 https://github.com/xiangfeidexiaohuo/extra-ipk.git
+cp -rf extra-ipk/atch/wall-luci/luci-app-vssr package/luci-app-vssr
+rm -rf extra-ipk
+git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖
 
 git clone --depth=1 https://github.com/fw876/helloworld.git
 cp -rf helloworld/luci-app-ssr-plus package/luci-app-ssr-plus
@@ -138,8 +140,8 @@ cp -rf helloworld//tuic-client package/tuic-client
 #cp -rf helloworld/xray-plugin package/xray-plugin
 rm -rf helloworld
 
-git clone https://github.com/xiaorouji/openwrt-passwall.git  package/luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall2.git  package/luci-app-passwall2
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git  package/luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git  package/luci-app-passwall2
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
 cp -rf openwrt-passwall-packages/brook package/brook
 cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
@@ -169,8 +171,8 @@ cp -rf openwrt-passwall-packages/xray-plugin package/xray-plugin
 rm -rf openwrt-passwall-packages
 
 # 添加themes
-git clone https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
-git clone https://github.com/kenzok78/luci-theme-argonne package/luci-theme-argonne
+git clone --depth=1 https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
+git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne package/luci-theme-argonne
 
 git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
 cp -rf openwrt-packages/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
@@ -188,7 +190,7 @@ sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.
 git clone --depth=1 https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 
 git clone --depth=1 https://github.com/apollo-ng/luci-theme-darkmatter.git
-cp -rf luci-theme-darkmatter/luci/luci-theme-darkmatter package/luci-theme-darkmatter
+cp -rf luci-theme-darkmatter/luci/themes/luci-theme-darkmatter package/luci-theme-darkmatter
 rm -rf luci-theme-darkmatter
 
 git clone --depth=1 https://github.com/rosywrt/luci-theme-rosy.git
