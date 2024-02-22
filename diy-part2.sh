@@ -49,27 +49,38 @@ git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata 
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
-svn co https://github.com/xiaozhuai/luci-app-filebrowser/branches/18.06 package/luci-app-filebrowser #lienol源码改进而来
+git clone -b 18.06 https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
-svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-pptp-server package/luci-app-pptp-server #lean中包含
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-fileassistant package/luci-app-fileassistant
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
-svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns #lean中包含,feeds/packages/net
-svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-syncthing package/luci-app-syncthing
+
+git clone --depth=1 https://github.com/Lienol/openwrt-package.git #lean中包含
+cp -rf openwrt-package/luci-app-pptp-server package/luci-app-pptp-server
+cp -rf openwrt-package/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+rm -rf openwrt-package
+
+git clone --depth=1 https://github.com/immortalwrt/luci.git #lean中包含
+cp -rf luci/applications/luci-app-fileassistant package/luci-app-fileassistant
+cp -rf luci/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
-svn co https://github.com/immortalwrt/packages/trunk/utils/syncthing package/syncthing
-svn co https://github.com/sundaqiang/openwrt-packages/trunk/luci-app-wolplus package/luci-app-wolplus
+rm -rf luci
 
+git clone --depth=1 https://github.com/immortalwrt/packages.git
+cp -rf packages/utils/syncthing package/syncthing
+rm -rf packages
 
-# 其他软件包
-#git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
-#svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost package/luci-app-gost
-#svn co https://github.com/immortalwrt/packages/trunk/net/gost package/gost
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
+cp -rf openwrt-packages/luci-app-smartdns package/luci-app-smartdns
+cp -rf openwrt-packages/smartdns package/smartdns #lean中包含,feeds/packages/net
+rm -rf openwrt-packages
+
+git clone --depth=1 https://github.com/sundaqiang/openwrt-packages.git
+cp -rf openwrt-packages/luci-app-wolplus package/luci-app-wolplus
+rm -rf openwrt-packages
+
 
 # 添加Amlogic Service
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git
+cp -rf luci-app-amlogic/luci-app-amlogic package/luci-app-amlogic
+rm -rf luci-app-amlogic
 
 # Modify the default configuration of Amlogic Box
 # 1.Set the download repository of the OpenWrt files to your github.com（OpenWrt 文件的下载仓库）
@@ -88,7 +99,9 @@ git clone https://github.com/linkease/istore-ui.git package/istore-ui
 git clone https://github.com/linkease/istore.git package/istore
 sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
 
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+git clone --depth=1 https://github.com/vernesong/OpenClash.git
+cp -rf OpenClash/luci-app-openclash package/luci-app-openclash
+rm -rf OpenClash
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
 make && sudo make install
@@ -98,80 +111,89 @@ popd
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖 
 
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-#svn co https://github.com/fw876/helloworld/trunk/chinadns-ng package/chinadns-ng
-#svn co https://github.com/fw876/helloworld/trunk/dns2socks package/dns2socks
-#svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
-#svn co https://github.com/fw876/helloworld/trunk/gn package/gn
-#svn co https://github.com/fw876/helloworld/trunk/hysteria package/hysteria
-#svn co https://github.com/fw876/helloworld/trunk/ipt2socks package/ipt2socks
-svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
-#svn co https://github.com/fw876/helloworld/trunk/microsocks package/microsocks
-#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/redsocks2
-svn co https://github.com/fw876/helloworld/trunk/shadow-tls package/shadow-tls
-#svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
-#svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
-#svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
-#svn co https://github.com/fw876/helloworld/trunk/tcping package/tcping
-#svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
-svn co https://github.com/fw876/helloworld/trunk/tuic-client package/tuic-client
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
-#svn co https://github.com/fw876/helloworld/trunk/v2raya package/v2raya
-#svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
-#svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
+git clone --depth=1 https://github.com/fw876/helloworld.git
+cp -rf helloworld/luci-app-ssr-plus package/luci-app-ssr-plus
+#cp -rf helloworld/chinadns-ng package/chinadns-ng
+#cp -rf helloworld/dns2socks package/dns2socks
+#cp -rf helloworld/dns2tcp package/dns2tcp
+#cp -rf helloworld/gn package/gn
+#cp -rf helloworld/hysteria package/hysteria
+#cp -rf helloworld/ipt2socks package/ipt2socks
+cp -rf helloworld//lua-neturl package/lua-neturl
+#cp -rf helloworld/microsocks package/microsocks
+#cp -rf helloworld/naiveproxy package/naiveproxy
+cp -rf helloworld//redsocks2 package/redsocks2
+cp -rf helloworld//shadow-tls package/shadow-tls
+#cp -rf helloworld/shadowsocks-rust package/shadowsocks-rust
+#cp -rf helloworld/shadowsocksr-libev package/shadowsocksr-libev
+#cp -rf helloworld/simple-obfs package/simple-obfs
+#cp -rf helloworld/tcping package/tcping
+#cp -rf helloworld/trojan package/trojan
+cp -rf helloworld//tuic-client package/tuic-client
+#cp -rf helloworld/v2ray-core package/v2ray-core
+#cp -rf helloworld/v2ray-geodata package/v2ray-geodata
+#cp -rf helloworld/v2ray-plugin package/v2ray-plugin
+#cp -rf helloworld/v2raya package/v2raya
+#cp -rf helloworld/xray-core package/xray-core
+#cp -rf helloworld/xray-plugin package/xray-plugin
+rm -rf helloworld
 
 git clone https://github.com/xiaorouji/openwrt-passwall.git  package/luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall2.git  package/luci-app-passwall2
-
-#svn co https://github.com/immortalwrt/packages/trunk/net/brook package/brook
-#cp -rf $GITHUB_WORKSPACE/general/brook package/brook
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/brook package/brook
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/chinadns-ng package/chinadns-ng
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/dns2socks package/dns2socks
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/dns2tcp package/dns2tcp
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/gn package/gn
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/hysteria package/hysteria
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/ipt2socks package/ipt2socks
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/microsocks package/microsocks
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/naiveproxy package/naiveproxy
-#svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/pdnsd-alt package/pdnsd-alt #与lean重复feeds/packages/net
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/shadowsocks-rust package/shadowsocks-rust
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/shadowsocksr-libev package/shadowsocksr-libev
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/simple-obfs package/simple-obfs
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/sing-box package/sing-box
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/ssocks package/ssocks
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/tcping package/tcping
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/trojan-go package/trojan-go
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/trojan-plus package/trojan-plus
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/trojan package/trojan
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/tuic-client package/tuic-client
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-core package/v2ray-core
-#cp -rf $GITHUB_WORKSPACE/general/v2ray-core package/v2ray-core
-#svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-geodata package/v2ray-geodata #与lean重复feeds/packages/net
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/v2ray-plugin package/v2ray-plugin
-#cp -rf $GITHUB_WORKSPACE/general/v2ray-plugin package/v2ray-plugin
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-core package/xray-core
-svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/xray-plugin package/xray-plugin
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
+cp -rf openwrt-passwall-packages/brook package/brook
+cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
+cp -rf openwrt-passwall-packages/dns2socks package/dns2socks
+cp -rf openwrt-passwall-packages/dns2tcp package/dns2tcp
+cp -rf openwrt-passwall-packages/gn package/gn
+cp -rf openwrt-passwall-packages/hysteria package/hysteria
+cp -rf openwrt-passwall-packages/ipt2socks package/ipt2socks
+cp -rf openwrt-passwall-packages/microsocks package/microsocks
+cp -rf openwrt-passwall-packages/naiveproxy package/naiveproxy
+#cp -rf openwrt-passwall-packages/pdnsd-alt package/pdnsd-alt #与lean重复feeds/packages/net
+cp -rf openwrt-passwall-packages/shadowsocks-rust package/shadowsocks-rust
+cp -rf openwrt-passwall-packages/shadowsocksr-libev package/shadowsocksr-libev
+cp -rf openwrt-passwall-packages/simple-obfs package/simple-obfs
+cp -rf openwrt-passwall-packages/sing-box package/sing-box
+cp -rf openwrt-passwall-packages/ssocks package/ssocks
+cp -rf openwrt-passwall-packages/tcping package/tcping
+cp -rf openwrt-passwall-packages/trojan-go package/trojan-go
+cp -rf openwrt-passwall-packages/trojan-plus package/trojan-plus
+cp -rf openwrt-passwall-packages/trojan package/trojan
+cp -rf openwrt-passwall-packages/tuic-client package/tuic-client
+cp -rf openwrt-passwall-packages/v2ray-core package/v2ray-core
+#cp -rf openwrt-passwall-packages/v2ray-geodata package/v2ray-geodata #与lean重复feeds/packages/net
+cp -rf openwrt-passwall-packages/v2ray-plugin package/v2ray-plugin
+cp -rf openwrt-passwall-packages/xray-core package/xray-core
+cp -rf openwrt-passwall-packages/xray-plugin package/xray-plugin
+rm -rf openwrt-passwall-packages
 
 # 添加themes
 git clone https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
 git clone https://github.com/kenzok78/luci-theme-argonne package/luci-theme-argonne
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-ifit package/luci-theme-ifit
-svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-neobird
-svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-theme-opentomato
-svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-theme-opentomcat
+
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
+cp -rf openwrt-packages/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
+cp -rf openwrt-packages/luci-theme-ifit package/luci-theme-ifit
+rm -rf openwrt-packages
+
+git clone --depth=1 https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
+git clone --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomato.git package/luci-theme-opentomato
+git clone --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 # fix luci-theme-opentomcat dockerman icon missing
 #rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
 cp -rf $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
 sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
-svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
-svn co https://github.com/apollo-ng/luci-theme-darkmatter/trunk/luci/themes/luci-theme-darkmatter package/luci-theme-darkmatter
-svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
+git clone --depth=1 https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
+
+git clone --depth=1 https://github.com/apollo-ng/luci-theme-darkmatter.git
+cp -rf luci-theme-darkmatter/luci/luci-theme-darkmatter package/luci-theme-darkmatter
+rm -rf luci-theme-darkmatter
+
+git clone --depth=1 https://github.com/rosywrt/luci-theme-rosy.git
+cp -rf luci-theme-rosy/luci-theme-rosy package/luci-theme-rosy
+rm -rf luci-theme-rosy
 
 # 修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
