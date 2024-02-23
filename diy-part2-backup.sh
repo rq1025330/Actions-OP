@@ -29,10 +29,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
 # TTYD 免登录
-sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
-
-# 更改 Argon 主题背景
-#cp -f $GITHUB_WORKSPACE/general/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+# sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # Golang 1.18.x -> 1.19.x
 #sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
@@ -57,6 +54,7 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
+
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
@@ -67,18 +65,37 @@ git clone --depth=1 https://github.com/iwrt/luci-app-ikoolproxy.git package/luci
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 git clone -b 18.06 https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
-git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-pptp-server #lean中包含
-git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-ssr-mudb-server
-git_sparse_clone master https://github.com/immortalwrt/luci luci-app-fileassistant #lean中包含
-git_sparse_clone master https://github.com/immortalwrt/luci luci-app-syncthing
+
+git clone --depth=1 https://github.com/Lienol/openwrt-package.git #lean中包含
+cp -rf openwrt-package/luci-app-pptp-server package/luci-app-pptp-server
+cp -rf openwrt-package/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+rm -rf openwrt-package
+
+git clone --depth=1 https://github.com/immortalwrt/luci.git #lean中包含
+cp -rf luci/applications/luci-app-fileassistant package/luci-app-fileassistant
+cp -rf luci/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
-git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages smartdns #lean中包含,feeds/packages/net
-git_sparse_clone master https://github.com/sundaqiang/openwrt-packages luci-app-wolplus
+rm -rf luci
+
+git clone --depth=1 https://github.com/immortalwrt/packages.git
+cp -rf packages/utils/syncthing package/syncthing
+rm -rf packages
+
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
+cp -rf openwrt-packages/luci-app-smartdns package/luci-app-smartdns
+cp -rf openwrt-packages/smartdns package/smartdns #lean中包含,feeds/packages/net
+rm -rf openwrt-packages
+
+git clone --depth=1 https://github.com/sundaqiang/openwrt-packages.git
+cp -rf openwrt-packages/luci-app-wolplus package/luci-app-wolplus
+rm -rf openwrt-packages
+
 
 # 添加Amlogic Service
-git_sparse_clone main https://github.com/ophub/luci-app-amlogic luci-app-amlogic
+git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git
+cp -rf luci-app-amlogic/luci-app-amlogic package/luci-app-amlogic
+rm -rf luci-app-amlogic
+
 # Modify the default configuration of Amlogic Box
 # 1.Set the download repository of the OpenWrt files to your github.com（OpenWrt 文件的下载仓库）
 sed -i "s|https.*/OpenWrt|https://github.com/rq1025330/Actions-OP|g" package/luci-app-amlogic/root/etc/config/amlogic
@@ -96,14 +113,18 @@ git clone --depth=1 https://github.com/linkease/istore-ui.git package/istore-ui
 git clone --depth=1 https://github.com/linkease/istore.git package/istore
 sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
 
-git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+git clone --depth=1 https://github.com/vernesong/OpenClash.git
+cp -rf OpenClash/luci-app-openclash package/luci-app-openclash
+rm -rf OpenClash
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
 make && sudo make install
 popd
 
 # 添加vssr&ssr-plus&passwall
-git_sparse_clone master https://github.com/xiangfeidexiaohuo/extra-ipk luci-app-vssr
+git clone --depth=1 https://github.com/xiangfeidexiaohuo/extra-ipk.git
+cp -rf extra-ipk/patch/wall-luci/luci-app-vssr package/luci-app-vssr
+rm -rf extra-ipk
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖
 
 git clone --depth=1 https://github.com/fw876/helloworld.git
@@ -135,7 +156,6 @@ rm -rf helloworld
 
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git  package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git  package/luci-app-passwall2
-
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
 cp -rf openwrt-passwall-packages/brook package/brook
 cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
@@ -167,8 +187,12 @@ rm -rf openwrt-passwall-packages
 # 添加themes
 git clone --depth=1 https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
 git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne package/luci-theme-argonne
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-atmaterial_new
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-ifit
+
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
+cp -rf openwrt-packages/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
+cp -rf openwrt-packages/luci-theme-ifit package/luci-theme-ifit
+rm -rf openwrt-packages
+
 git clone --depth=1 https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
 git clone --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomato.git package/luci-theme-opentomato
 git clone --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
@@ -178,8 +202,14 @@ cp -rf $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomc
 sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 git clone --depth=1 https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
-git_sparse_clone master https://github.com/apollo-ng/luci-theme-darkmatter luci/themes/luci-theme-darkmatter
-git_sparse_clone master https://github.com/rosywrt/luci-theme-rosy luci-theme-rosy
+
+git clone --depth=1 https://github.com/apollo-ng/luci-theme-darkmatter.git
+cp -rf luci-theme-darkmatter/luci/themes/luci-theme-darkmatter package/luci-theme-darkmatter
+rm -rf luci-theme-darkmatter
+
+git clone --depth=1 https://github.com/rosywrt/luci-theme-rosy.git
+cp -rf luci-theme-rosy/luci-theme-rosy package/luci-theme-rosy
+rm -rf luci-theme-rosy
 
 # 修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
