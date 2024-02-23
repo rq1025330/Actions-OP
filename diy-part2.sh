@@ -109,7 +109,7 @@ popd
 
 # 添加vssr&ssr-plus&passwall
 git clone --depth=1 https://github.com/xiangfeidexiaohuo/extra-ipk.git
-cp -rf extra-ipk/atch/wall-luci/luci-app-vssr package/luci-app-vssr
+cp -rf extra-ipk/patch/wall-luci/luci-app-vssr package/luci-app-vssr
 rm -rf extra-ipk
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖
 
