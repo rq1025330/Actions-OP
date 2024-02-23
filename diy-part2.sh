@@ -69,8 +69,10 @@ git clone -b 18.06 https://github.com/xiaozhuai/luci-app-filebrowser package/luc
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
 git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-pptp-server #lean中包含
 git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-ssr-mudb-server
-git_sparse_clone master https://github.com/immortalwrt/luci luci-app-fileassistant #lean中包含
-git_sparse_clone master https://github.com/immortalwrt/luci luci-app-syncthing
+
+git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-fileassistant #lean中包含
+git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-syncthing
+
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
 git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
@@ -103,7 +105,7 @@ make && sudo make install
 popd
 
 # 添加vssr&ssr-plus&passwall
-git_sparse_clone master https://github.com/xiangfeidexiaohuo/extra-ipk luci-app-vssr
+git_sparse_clone master https://github.com/xiangfeidexiaohuo/extra-ipk patch/wall-luci/luci-app-vssr
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖
 
 git clone --depth=1 https://github.com/fw876/helloworld.git
@@ -179,7 +181,7 @@ sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 git clone --depth=1 https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 git_sparse_clone master https://github.com/apollo-ng/luci-theme-darkmatter luci/themes/luci-theme-darkmatter
-git_sparse_clone master https://github.com/rosywrt/luci-theme-rosy luci-theme-rosy
+git_sparse_clone openwrt-18.06 https://github.com/rosywrt/luci-theme-rosy luci-theme-rosy
 
 # 修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
