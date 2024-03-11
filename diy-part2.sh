@@ -59,7 +59,7 @@ function git_sparse_clone() {
 }
 
 # 添加额外软件包
-git_sparse_clone main https://github.com/openwrt/openwrt.git package/libs/elfutils
+git_sparse_clone main https://github.com/openwrt/openwrt package/libs/elfutils
 git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
