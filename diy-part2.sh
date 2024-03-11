@@ -39,14 +39,6 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 #sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 
-# containerd
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=skip/g' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=3df54a852345ae127d1fa3092b95168e4a88e2f8/g' feeds/packages/utils/containerd/Makefile
-cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/container
-
-
-
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
@@ -54,6 +46,7 @@ rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
+rm -rf package/libs/elfutils
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -66,6 +59,7 @@ function git_sparse_clone() {
 }
 
 # 添加额外软件包
+git_sparse_clone main https://github.com/openwrt/openwrt.git package/libs/elfutils
 git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset

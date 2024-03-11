@@ -43,6 +43,7 @@ rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
+rm -rf package/libs/elfutils
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -54,8 +55,11 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
-
 # 添加额外软件包
+git clone --depth=1  https://github.com/openwrt/openwrt.git #lean中包含
+cp -rf openwrt/package/libs/elfutils package/elfutils
+rm -rf openwrt
+git_sparse_clone main https://github.com/openwrt/openwrt.git package/libs/elfutils
 git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
