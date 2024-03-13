@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
@@ -54,7 +54,6 @@ rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
-
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {

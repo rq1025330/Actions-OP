@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
@@ -29,7 +29,10 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
 # TTYD 免登录
-# sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+
+# 更改 Argon 主题背景
+#cp -f $GITHUB_WORKSPACE/general/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # Golang 1.18.x -> 1.19.x
 #sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
@@ -43,7 +46,6 @@ rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
-rm -rf package/libs/elfutils
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -57,9 +59,6 @@ function git_sparse_clone() {
 
 # 添加额外软件包
 git clone --depth=1  https://github.com/openwrt/openwrt.git #lean中包含
-cp -rf openwrt/package/libs/elfutils package/elfutils
-rm -rf openwrt
-git_sparse_clone main https://github.com/openwrt/openwrt.git package/libs/elfutils
 git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
