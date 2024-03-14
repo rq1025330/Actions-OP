@@ -58,10 +58,7 @@ jobs:
         sudo -E apt update
         sudo -E apt -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
         sudo -E apt -y autoremove --purge
-        sudo -E apt -y install libfuse-dev
         sudo -E apt -y install rename
-        sudo -E apt -y install time
-        sudo -E apt -y install gn
         sudo -E systemctl daemon-reload
         sudo -E apt clean
         sudo timedatectl set-timezone "$TZ"
