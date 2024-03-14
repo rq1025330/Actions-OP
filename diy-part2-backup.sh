@@ -58,7 +58,6 @@ function git_sparse_clone() {
 }
 
 # 添加额外软件包
-git clone --depth=1  https://github.com/openwrt/openwrt.git #lean中包含
 git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
