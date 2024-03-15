@@ -42,10 +42,12 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # elfutils
 rm -rf package/libs/elfutils
 git_sparse_clone main https://github.com/openwrt/openwrt package/libs/elfutils
-
 # cryptsetup
 rm -rf feeds/packages/utils/cryptsetup
 cp -rf $GITHUB_WORKSPACE/general/cryptsetup feeds/packages/utils
+# at
+rm -rf feeds/packages/utils/at
+cp -rf $GITHUB_WORKSPACE/general/at feeds/packages/utils
 
 
 # 移除不用软件包
