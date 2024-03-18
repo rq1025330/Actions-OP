@@ -40,15 +40,14 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 
 # elfutils
-rm -rf package/libs/elfutils
-git_sparse_clone main https://github.com/openwrt/openwrt package/libs/elfutils
+#rm -rf package/libs/elfutils
+#git_sparse_clone main https://github.com/openwrt/openwrt package/libs/elfutils
 # cryptsetup
-rm -rf feeds/packages/utils/cryptsetup
-cp -rf $GITHUB_WORKSPACE/general/cryptsetup feeds/packages/utils
+#rm -rf feeds/packages/utils/cryptsetup
+#cp -rf $GITHUB_WORKSPACE/general/cryptsetup feeds/packages/utils
 # at
-rm -rf feeds/packages/utils/at
-cp -rf $GITHUB_WORKSPACE/general/at feeds/packages/utils
-
+#rm -rf feeds/packages/utils/at
+#cp -rf $GITHUB_WORKSPACE/general/at feeds/packages/utils
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
