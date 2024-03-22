@@ -46,6 +46,16 @@ rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/utils/syncthing
 
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
+
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
@@ -80,7 +90,6 @@ rm -rf openwrt-packages
 git clone --depth=1 https://github.com/sundaqiang/openwrt-packages.git
 cp -rf openwrt-packages/luci-app-wolplus package/luci-app-wolplus
 rm -rf openwrt-packages
-
 
 # 添加Amlogic Service
 git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git

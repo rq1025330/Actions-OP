@@ -46,6 +46,7 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # cryptsetup
 #rm -rf feeds/packages/utils/cryptsetup
 #cp -rf $GITHUB_WORKSPACE/general/cryptsetup feeds/packages/utils
+
 # at
 #rm -rf feeds/packages/utils/at
 #cp -rf $GITHUB_WORKSPACE/general/at feeds/packages/utils
@@ -82,8 +83,8 @@ git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-ssr-mud
 
 git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-fileassistant #lean中包含
 git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-syncthing
-
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
+
 git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages smartdns #lean中包含,feeds/packages/net
