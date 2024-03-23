@@ -39,17 +39,11 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 #sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 
-# elfutils
-#rm -rf package/libs/elfutils
-#git_sparse_clone main https://github.com/openwrt/openwrt package/libs/elfutils
+# libxml2
+git clone --depth=1 https://github.com/immortalwrt/immortalwrt.git
+rm -rf feeds/packages/libs/libxml2
+cp -rf immortalwrt/package/libs/libxml2 feeds/packages/libs/libxml2
 
-# cryptsetup
-#rm -rf feeds/packages/utils/cryptsetup
-#cp -rf $GITHUB_WORKSPACE/general/cryptsetup feeds/packages/utils
-
-# at
-#rm -rf feeds/packages/utils/at
-#cp -rf $GITHUB_WORKSPACE/general/at feeds/packages/utils
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
@@ -69,10 +63,10 @@ function git_sparse_clone() {
 }
 
 # 添加额外软件包
-git clone --depth=1 https://github.com/sbwml/luci-app-alist package/alist
+git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
-git clone --depth=1 https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata #lean中包含,修改中文
+git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git  package/luci-app-autotimeset
+git clone --depth=1 https://github.com/sirpdboy/luci-app-netdata.git  package/luci-app-netdata #lean中包含,修改中文
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone --depth=1 https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 #svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
@@ -178,8 +172,8 @@ cp -rf openwrt-passwall-packages/xray-plugin package/xray-plugin
 rm -rf openwrt-passwall-packages
 
 # 添加themes
-git clone --depth=1 https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
-git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne package/luci-theme-argonne
+git clone --depth=1 https://github.com/kenzok78/luci-app-argonne-config.git  package/luci-app-argonne-config
+git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne.git  package/luci-theme-argonne
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-atmaterial_new
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-ifit
 git clone --depth=1 https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
