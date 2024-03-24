@@ -40,9 +40,14 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
 
 # libxml2
-git clone --depth=1 https://github.com/immortalwrt/immortalwrt.git
-rm -rf feeds/packages/libs/libxml2
-cp -rf immortalwrt/package/libs/libxml2 feeds/packages/libs/libxml2
+#git clone --depth=1 https://github.com/immortalwrt/immortalwrt.git
+#rm -rf feeds/packages/libs/libxml2
+#cp -rf immortalwrt/package/libs/libxml2 feeds/packages/libs/libxml2
+
+#libxslt
+git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
+rm -rf feeds/packages/libs/libxslt
+cp -rf openwrt-packages/libs/libxslt feeds/packages/libs/libxslt
 
 
 # 移除不用软件包
