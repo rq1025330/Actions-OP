@@ -69,7 +69,7 @@ rm -rf openwrt-packages
 
 # elfutils
 rm -rf package/libs/elfutils
-git clone --depth=1 https://github.com/openwrt/openwrt.git
+git clone --depth=1 https://github.com/Lienol/openwrt.git
 cp -rf openwrt/package/libs/elfutils package/libs/elfutils
 rm -rf openwrt
 
