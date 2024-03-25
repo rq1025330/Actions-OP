@@ -34,25 +34,6 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/general/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
-# Golang 1.18.x -> 1.19.x
-#sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
-#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
-
-# libxml2
-#git clone --depth=1 https://github.com/immortalwrt/immortalwrt.git
-#rm -rf feeds/packages/libs/libxml2
-#cp -rf immortalwrt/package/libs/libxml2 feeds/packages/libs/libxml2
-
-# libxslt
-git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
-rm -rf feeds/packages/libs/libxslt
-cp -rf openwrt-packages/libs/libxslt feeds/packages/libs/libxslt
-
-# elfutils
-rm -rf package/libs/elfutils
-git_sparse_clone main https://github.com/openwrt/openwrt.git openwrt/package/libs/elfutils
-
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-pptp-server
@@ -69,6 +50,28 @@ function git_sparse_clone() {
   mv -f $@ ../package
   cd .. && rm -rf $repodir
 }
+
+# Golang 1.18.x -> 1.19.x
+#sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
+#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2ce930d70a931de660fdaf271d70192793b1b240272645bf0275779f6704df6b/g' feeds/packages/lang/golang/golang/Makefile
+
+# libxml2
+#git clone --depth=1 https://github.com/immortalwrt/immortalwrt.git
+#rm -rf feeds/packages/libs/libxml2
+#cp -rf immortalwrt/package/libs/libxml2 feeds/packages/libs/libxml2
+
+# libxslt
+git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
+rm -rf feeds/packages/libs/libxslt
+cp -rf openwrt-packages/libs/libxslt feeds/packages/libs/libxslt
+rm -rf openwrt-packages
+
+# elfutils
+rm -rf package/libs/elfutils
+git clone --depth=1 https://github.com/openwrt/openwrt.git
+cp -rf openwrt/package/libs/elfutils package/libs/elfutils
+rm -rf openwrt
 
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
