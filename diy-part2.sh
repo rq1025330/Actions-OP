@@ -73,6 +73,13 @@ git clone --depth=1 https://github.com/Lienol/openwrt.git
 cp -rf openwrt/package/libs/elfutils package/libs/elfutils
 rm -rf openwrt
 
+# python-yaml
+rm -rf feeds/packages/lang/python/python-yaml
+git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
+cp -rf openwrt-packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
+rm -rf openwrt-packages
+
+
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
