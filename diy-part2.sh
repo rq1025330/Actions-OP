@@ -79,6 +79,13 @@ git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
 cp -rf openwrt-packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
 rm -rf openwrt-packages
 
+# golang
+rm -rf feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone --depth=1 https://github.com/immortalwrt/packages.git
+cp -rf packages/lang/golang feeds/packages/lang/golang
+rm -rf packages
+
 
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
