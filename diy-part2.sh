@@ -44,11 +44,14 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 #rm -rf feeds/packages/libs/libxml2
 #cp -rf immortalwrt/package/libs/libxml2 feeds/packages/libs/libxml2
 
-#libxslt
+# libxslt
 git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
 rm -rf feeds/packages/libs/libxslt
 cp -rf openwrt-packages/libs/libxslt feeds/packages/libs/libxslt
 
+# elfutils
+rm -rf package/libs/elfutils
+git_sparse_clone main https://github.com/openwrt/openwrt.git openwrt/package/libs/elfutils
 
 # 移除不用软件包
 rm -rf feeds/luci/applications/luci-app-netdata
