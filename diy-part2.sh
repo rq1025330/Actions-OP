@@ -34,7 +34,7 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/general/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
-# 移除件包
+# 移除软件包
 rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-pptp-server
 rm -rf feeds/luci/applications/luci-app-smartdns
@@ -80,7 +80,6 @@ rm -rf packages
 
 # shadowsocks-rust
 cp -rf $GITHUB_WORKSPACE/general/shadowsocks-rust package/shadowsocks-rust
-
 
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
