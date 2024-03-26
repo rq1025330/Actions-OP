@@ -68,7 +68,6 @@ rm -rf openwrt
 rm -rf feeds/packages/lang/python/python-yaml
 git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
 cp -rf openwrt-packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
-
 cp -rf openwrt-packages/lang/python/python-cython feeds/packages/lang/python/python-cython
 cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/python-installer
 cp -rf openwrt-packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
@@ -79,7 +78,6 @@ cp -rf openwrt-packages/lang/python/python-tomli feeds/packages/lang/python/pyth
 cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/python-installer
 rm -rf feeds/packages/lang/python/python-packaging
 cp -rf openwrt-packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
-
 rm -rf openwrt-packages
 
 # golang
