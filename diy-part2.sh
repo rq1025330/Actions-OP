@@ -71,8 +71,17 @@ cp -rf openwrt-packages/lang/python/python-yaml feeds/packages/lang/python/pytho
 
 cp -rf openwrt-packages/lang/python/python-cython feeds/packages/lang/python/python-cython
 cp -rf openwrt-packages/lang/python/python-build feeds/packages/lang/python/python-build
-cp -rf openwrt-packages/lang/python/installer feeds/packages/lang/python/python-installer
+
+cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/python-installer
+
 cp -rf openwrt-packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
+
+
+#python-flit-core
+#python-pyproject-hooks
+#python-tomli
+
+
 rm -rf openwrt-packages
 
 # golang
