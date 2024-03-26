@@ -77,6 +77,15 @@ cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/
 cp -rf openwrt-packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
 
 
+cp -rf openwrt-packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
+cp -rf openwrt-packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
+cp -rf openwrt-packages/lang/python/python-tomli feeds/packages/lang/python/python-tomli
+
+
+
+
+
+
 #python-flit-core
 #python-pyproject-hooks
 #python-tomli
