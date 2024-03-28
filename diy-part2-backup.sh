@@ -64,21 +64,45 @@ git clone --depth=1 https://github.com/Lienol/openwrt.git
 cp -rf openwrt/package/libs/elfutils package/libs/elfutils
 rm -rf openwrt
 
-# python-yaml
+# python-yaml immortalwrt
 rm -rf feeds/packages/lang/python/python-yaml
-git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
-cp -rf openwrt-packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
-cp -rf openwrt-packages/lang/python/python-cython feeds/packages/lang/python/python-cython
-cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/python-installer
-cp -rf openwrt-packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
-cp -rf openwrt-packages/lang/python/python-build feeds/packages/lang/python/python-build
-cp -rf openwrt-packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
-cp -rf openwrt-packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
-cp -rf openwrt-packages/lang/python/python-tomli feeds/packages/lang/python/python-tomli
-cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/python-installer
+git clone --depth=1 https://github.com/immortalwrt/packages.git
+cp -rf packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
+
+cp -rf packages/lang/python/python-cython feeds/packages/lang/python/python-cython
+
+cp -rf packages/lang/python/python-build feeds/packages/lang/python/python-build
+cp -rf packages/lang/python/python-installer feeds/packages/lang/python/python-installer
+cp -rf packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
+
+cp -rf packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
 rm -rf feeds/packages/lang/python/python-packaging
-cp -rf openwrt-packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
-rm -rf openwrt-packages
+cp -rf packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
+cp -rf packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
+
+rm -rf feeds/packages/lang/python3-host.mk
+cp -rf packages/lang/python/python3-host.mk feeds/packages/lang/python3-host.mk
+
+rm -rf packages
+
+# python-yaml Lienol
+#rm -rf feeds/packages/lang/python/python-yaml
+#git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
+
+#cp -rf openwrt-packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
+
+#cp -rf openwrt-packages/lang/python/python-cython feeds/packages/lang/python/python-cython
+
+#cp -rf openwrt-packages/lang/python/python-build feeds/packages/lang/python/python-build
+#cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/python-installer
+#cp -rf openwrt-packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
+
+#cp -rf openwrt-packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
+#rm -rf feeds/packages/lang/python/python-packaging
+#cp -rf openwrt-packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
+#cp -rf openwrt-packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
+#cp -rf openwrt-packages/lang/python/python-tomli feeds/packages/lang/python/python-tomli
+#rm -rf openwrt-packages
 
 # golang
 rm -rf feeds/packages/lang/golang
