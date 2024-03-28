@@ -75,6 +75,11 @@ cp -rf packages/lang/python/python-build feeds/packages/lang/python/python-build
 cp -rf packages/lang/python/python-installer feeds/packages/lang/python/python-installer
 cp -rf packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
 
+cp -rf packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
+rm -rf feeds/packages/lang/python/python-packaging
+cp -rf packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
+cp -rf packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
+#cp -rf openwrt-packages/lang/python/python-tomli feeds/packages/lang/python/python-tomli
 
 rm -rf packages
 
