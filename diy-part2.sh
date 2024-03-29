@@ -65,9 +65,9 @@ cp -rf openwrt/package/libs/elfutils package/libs/elfutils
 rm -rf openwrt
 
 # python-yaml immortalwrt
-rm -rf feeds/packages/lang/python/python-yaml
-git clone --depth=1 https://github.com/immortalwrt/packages.git
-cp -rf packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
+#rm -rf feeds/packages/lang/python/python-yaml
+#git clone --depth=1 https://github.com/immortalwrt/packages.git
+#cp -rf packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
 
 #cp -rf packages/lang/python/python-cython feeds/packages/lang/python/python-cython
 
