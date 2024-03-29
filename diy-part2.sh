@@ -69,17 +69,17 @@ rm -rf feeds/packages/lang/python/python-yaml
 git clone --depth=1 https://github.com/immortalwrt/packages.git
 cp -rf packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
 
-cp -rf packages/lang/python/python-cython feeds/packages/lang/python/python-cython
+#cp -rf packages/lang/python/python-cython feeds/packages/lang/python/python-cython
 
-cp -rf packages/lang/python/python-build feeds/packages/lang/python/python-build
-cp -rf packages/lang/python/python-installer feeds/packages/lang/python/python-installer
-cp -rf packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
+#cp -rf packages/lang/python/python-build feeds/packages/lang/python/python-build
+#cp -rf packages/lang/python/python-installer feeds/packages/lang/python/python-installer
+#cp -rf packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
 
-cp -rf packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
-rm -rf feeds/packages/lang/python/python-packaging
-cp -rf packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
-cp -rf packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
-rm -rf packages
+#cp -rf packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
+#rm -rf feeds/packages/lang/python/python-packaging
+#cp -rf packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
+#cp -rf packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
+#rm -rf packages
 
 # python-yaml Lienol
 #rm -rf feeds/packages/lang/python/python-yaml
