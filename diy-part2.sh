@@ -64,6 +64,12 @@ git clone --depth=1 https://github.com/Lienol/openwrt.git
 cp -rf openwrt/package/libs/elfutils package/libs/elfutils
 rm -rf openwrt
 
+# tailscale
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.38.1/g' feeds/packages/net/tailscale/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=395ba90c80ae0b5a6e3a25f19709ca83a6be015ed11efe4d73ef5d6d714d273d/g' feeds/packages/net/tailscale/Makefile
+rm -rf feeds/packages/net/tailscale
+cp -rf $GITHUB_WORKSPACE/general/tailscale feeds/packages/net/tailscale
+
 # python-yaml immortalwrt
 #rm -rf feeds/packages/lang/python/python-yaml
 #git clone --depth=1 https://github.com/immortalwrt/packages.git
