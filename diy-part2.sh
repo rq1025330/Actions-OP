@@ -53,10 +53,10 @@ function git_sparse_clone() {
 
 # Fix error
 # libxslt
-git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
-rm -rf feeds/packages/libs/libxslt
-cp -rf openwrt-packages/libs/libxslt feeds/packages/libs/libxslt
-rm -rf openwrt-packages
+#git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
+#rm -rf feeds/packages/libs/libxslt
+#cp -rf openwrt-packages/libs/libxslt feeds/packages/libs/libxslt
+#rm -rf openwrt-packages
 
 # elfutils
 rm -rf package/libs/elfutils
