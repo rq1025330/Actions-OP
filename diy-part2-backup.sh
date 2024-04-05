@@ -145,8 +145,12 @@ cp -rf openwrt-packages/luci-app-smartdns package/luci-app-smartdns
 cp -rf openwrt-packages/smartdns package/smartdns #lean中包含,feeds/packages/net
 rm -rf openwrt-packages
 
+git clone --depth=1 https://github.com/bauw2008/op.git
+cp -rf op/luci-app-virtualhere package/luci-app-virtualhere
+rm -rf op
+
 git clone --depth=1 https://github.com/sundaqiang/openwrt-packages.git
-cp -rf openwrt-packages/luci-app-wolplus package/luci-app-wolplus
+cp -rf git clone --depth=1 https://github.com/bauw2008/op.git package/luci-app-wolplus
 rm -rf openwrt-packages
 
 # 添加Amlogic Service

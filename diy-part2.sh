@@ -116,6 +116,8 @@ rm -rf packages
 # shadowsocks-rust
 cp -rf $GITHUB_WORKSPACE/general/shadowsocks-rust package/shadowsocks-rust
 
+https://github.com/bauw2008/op/tree/3d1320f44a188ada6ddb49edb8ba07c68fcfde30
+
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
@@ -136,6 +138,7 @@ cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn
 git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages smartdns #lean中包含,feeds/packages/net
+git_sparse_clone master https://github.com/bauw2008/op luci-app-virtualhere
 git_sparse_clone master https://github.com/sundaqiang/openwrt-packages luci-app-wolplus
 
 # 添加Amlogic Service
