@@ -9,16 +9,18 @@ start_instance() {
     config_get_bool ExtAccess "$cfg" 'ExtAccess' '0'
 #   echo "enabled=$enabled,ExtAccess=$ExtAccess">>/tmp/tmp/vhusbd
     if [ $enabled -eq 1 ]; then
+        wget 'https://www.virtualhere.com/sites/default/files/usbserver/vhusbdarm64' -O /usr/bin/vhusbd
+        chmod +x /usr/bin/vhusbd
         vhusbd -b -c /etc/config/vhusbdconfig -r /tmp/vhusbd.log
 #       echo "virtualhere start">>/tmp/tmp/vhusbd
-	if [ $ExtAccess -eq 1 ]; then
-            iptables -I INPUT -p tcp --dport 7575 -j ACCEPT -m comment --comment 'virtualhere port'
-#           echo "virtualhere open firwall">>/tmp/tmp/vhusbd
+        if [ $ExtAccess -eq 1 ]; then
+        iptables -I INPUT -p tcp --dport 7575 -j ACCEPT -m comment --comment 'virtualhere port'
+#       echo "virtualhere open firwall">>/tmp/tmp/vhusbd
         fi
     fi
 }
 
-start() {
+start() { 
     config_load 'vhusbd'
     config_foreach start_instance vhusbd
 #   echo " ">>/tmp/tmp/vhusbd
@@ -26,6 +28,6 @@ start() {
 
 stop() {
     iptables -D INPUT -p tcp --dport 7575 -j ACCEPT -m comment --comment 'virtualhere port' 2>/dev/null
-    kill -9 `pgrep vhusbd`
+    kill `pgrep vhusbd`
 #   echo "virtualhere stop">>/tmp/tmp/vhusbd
 }
