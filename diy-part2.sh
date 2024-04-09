@@ -125,7 +125,6 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git  packag
 git clone --depth=1 https://github.com/sirpdboy/luci-app-netdata.git  package/luci-app-netdata #lean中包含,修改中文
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone --depth=1 https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
-#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 git clone -b 18.06 https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
 git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-pptp-server #lean中包含
