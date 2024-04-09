@@ -1,3 +1,0 @@
-config vhusbd
-	option enabled '0'
-	option ExtAccess '0'
