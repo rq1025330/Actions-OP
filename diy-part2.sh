@@ -22,14 +22,14 @@ sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' feeds/luci/collections/l
 # Autocore
 sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 
-# Replace coremark.sh with the new one
-#cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
-
 # OpenConnect Change to system
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-ocserv/luasrc/controller/ocserv.lua #OpenConnect VPN-->VPN
 
 # TTYD 免登录
 sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+
+# Replace coremark.sh with the new one
+#cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/general/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
@@ -78,7 +78,6 @@ rm -rf packages
 # shadowsocks-rust
 cp -rf $GITHUB_WORKSPACE/general/shadowsocks-rust package/shadowsocks-rust
 
-https://github.com/bauw2008/op/tree/3d1320f44a188ada6ddb49edb8ba07c68fcfde30
 
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
