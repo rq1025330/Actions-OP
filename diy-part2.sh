@@ -65,46 +65,8 @@ cp -rf openwrt/package/libs/elfutils package/libs/elfutils
 rm -rf openwrt
 
 # tailscale
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.38.1/g' feeds/packages/net/tailscale/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=395ba90c80ae0b5a6e3a25f19709ca83a6be015ed11efe4d73ef5d6d714d273d/g' feeds/packages/net/tailscale/Makefile
 rm -rf feeds/packages/net/tailscale
 cp -rf $GITHUB_WORKSPACE/general/tailscale feeds/packages/net/tailscale
-
-# python-yaml immortalwrt
-#rm -rf feeds/packages/lang/python/python-yaml
-#git clone --depth=1 https://github.com/immortalwrt/packages.git
-#cp -rf packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
-
-#cp -rf packages/lang/python/python-cython feeds/packages/lang/python/python-cython
-
-#cp -rf packages/lang/python/python-build feeds/packages/lang/python/python-build
-#cp -rf packages/lang/python/python-installer feeds/packages/lang/python/python-installer
-#cp -rf packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
-
-#cp -rf packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
-#rm -rf feeds/packages/lang/python/python-packaging
-#cp -rf packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
-#cp -rf packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
-#rm -rf packages
-
-# python-yaml Lienol
-#rm -rf feeds/packages/lang/python/python-yaml
-#git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
-
-#cp -rf openwrt-packages/lang/python/python-yaml feeds/packages/lang/python/python-yaml
-
-#cp -rf openwrt-packages/lang/python/python-cython feeds/packages/lang/python/python-cython
-
-#cp -rf openwrt-packages/lang/python/python-build feeds/packages/lang/python/python-build
-#cp -rf openwrt-packages/lang/python/python-installer feeds/packages/lang/python/python-installer
-#cp -rf openwrt-packages/lang/python/python-wheel feeds/packages/lang/python/python-wheel
-
-#cp -rf openwrt-packages/lang/python/python-flit-core feeds/packages/lang/python/python-flit-core
-#rm -rf feeds/packages/lang/python/python-packaging
-#cp -rf openwrt-packages/lang/python/python-packaging feeds/packages/lang/python/python-packaging
-#cp -rf openwrt-packages/lang/python/python-pyproject-hooks feeds/packages/lang/python/python-pyproject-hooks
-#cp -rf openwrt-packages/lang/python/python-tomli feeds/packages/lang/python/python-tomli
-#rm -rf openwrt-packages
 
 # golang
 rm -rf feeds/packages/lang/golang
@@ -137,7 +99,7 @@ cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn
 git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages smartdns #lean中包含,feeds/packages/net
-git_sparse_clone master https://github.com/bauw2008/op luci-app-virtualhere
+git clone git@github.com:rq1025330/luci-app-virtualher.git package/luci-app-virtualher
 git_sparse_clone master https://github.com/sundaqiang/openwrt-packages luci-app-wolplus
 
 # 添加Amlogic Service
