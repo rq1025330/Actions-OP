@@ -98,7 +98,7 @@ cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn
 git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages smartdns #lean中包含,feeds/packages/net
-git clone git@github.com:rq1025330/luci-app-virtualher.git package/luci-app-virtualher
+git clone --depth=1 https://github.com/rq102533/luci-app-virtualher.git package/luci-app-virtualher
 git_sparse_clone master https://github.com/sundaqiang/openwrt-packages luci-app-wolplus
 
 # 添加Amlogic Service

@@ -108,11 +108,6 @@ jobs:
     #    cd openwrt
     #    ../$DIY_P1_SH
 
-    - name: Clone Private Repository
-      run: |
-        cd openwrt
-        git clone https://${{ secrets.RELEASES_TOKEN }}@github.com/rq1025330/luci-app-virtualher.git
-
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
