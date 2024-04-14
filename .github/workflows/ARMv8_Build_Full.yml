@@ -89,6 +89,17 @@ jobs:
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
 
+    - name: Download IPK
+      id: download
+      run: |
+        echo $PWD
+        cd /${{ env.PACKAGED_OUTPUTPATH }}
+        rm -rf openwrt*gz
+        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/53780481 | grep browser_download_url | cut -d '"' -f 4)
+        #rename 's/Full-openwrt/openwrt/' Full-openwrt*gz
+        #rename 's/openwrt/Full-openwrt/' openwrt*gz
+        rm -rf *.sha
+
     - name: Upload artifact to Actions
       uses: kittaakos/upload-artifact-as-is@master
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
@@ -111,7 +122,7 @@ jobs:
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           参见 Files4Build_Full 内记录
           **Full版**---->[下载](https://github.com/rq1025330/Actions-OP/releases/tag/ARMv8_Full)
-          底包编译超时，取消了➦Node，目前仅➦网易云解锁NodeJS版受影响，可单独[下载](https://github.com/rq1025330/Actions-OP/releases/tag/ARMv8_Full_Local)ipk安装。
+          底包编译超时，取消了->Node，目前仅->网易云解锁NodeJS版受影响，可单独[下载](https://github.com/rq1025330/Actions-OP/releases/tag/ARMv8_Full_Local)ipk安装。
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
     
     - name: Telegram notification
