@@ -95,7 +95,7 @@ jobs:
         echo $PWD
         cd /${{ env.PACKAGED_OUTPUTPATH }}
         rm -rf openwrt-armvirt*gz
-        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/56655136 | grep browser_download_url | cut -d '"' -f 4)
+        sudo wget $(curl -s https://api.github.com/repos/${{github.repository}}/releases/84552682 | grep browser_download_url | cut -d '"' -f 4)
         #rename 's/Full_Local-openwrt/openwrt/' Full_Local-openwrt*gz
         #rename 's/openwrt/Full_Local-openwrt/' openwrt*gz
         rm -rf *.sha *.bin *.manifest
