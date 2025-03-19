@@ -65,7 +65,7 @@ sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebro
 #git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-ssr-mudb-server
 git clone --depth=1 https://github.com/Lienol/openwrt-package.git
 cp -rf openwrt-package/luci-app-pptp-server package/luci-app-pptp-server
-cp -rf openwrt-package/luci-app-pptp-server package/luci-app-ssr-mudb-server
+cp -rf openwrt-package/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
 rm -rf openwrt-package
 
 #git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-filemanager
@@ -202,7 +202,7 @@ git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne.git  package/
 #git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-ifit
 git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
 cp -rf openwrt-packages/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
-cp -rf openwrt-packages/luci-theme-atmaterial_new package/luci-theme-ifit
+cp -rf openwrt-packages/luci-theme-ifit package/luci-theme-ifit
 rm -rf openwrt-packages
 
 git clone --depth=1 https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
