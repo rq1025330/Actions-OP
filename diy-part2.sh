@@ -34,6 +34,10 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/general/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
+# lang/rust/Makefile 1.84 -> 1.85.1
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.85.1/g' feeds/packages/lang/rust/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=0f2995ca083598757a8d9a293939e569b035799e070f419a686b0996fb94238a/g' feeds/packages/lang/rust/Makefile
+
 # 移除软件包
 rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-pptp-server
