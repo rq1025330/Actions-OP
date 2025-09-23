@@ -142,55 +142,58 @@ git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git package/lua-m
 
 git clone --depth=1 https://github.com/fw876/helloworld.git
 cp -rf helloworld/luci-app-ssr-plus package/luci-app-ssr-plus
-#cp -rf helloworld/chinadns-ng package/chinadns-ng
-#cp -rf helloworld/dns2socks package/dns2socks
+cp -rf helloworld/chinadns-ng package/chinadns-ng
+cp -rf helloworld/dns2socks-rust package/dns2socks-rust
+cp -rf helloworld/dns2socks package/dns2socks
 cp -rf helloworld/dns2tcp package/dns2tcp
+cp -rf helloworld/dnsproxy package/dnsproxy
 cp -rf helloworld/gn package/gn
-#cp -rf helloworld/hysteria package/hysteria
-#cp -rf helloworld/ipt2socks package/ipt2socks
+cp -rf helloworld/hysteria package/hysteria
+cp -rf helloworld/ipt2socks package/ipt2socks
 cp -rf helloworld/lua-neturl package/lua-neturl
-#cp -rf helloworld/microsocks package/microsocks
+cp -rf helloworld/microsocks package/microsocks
 cp -rf helloworld/mosdns package/mosdns
-#cp -rf helloworld/naiveproxy package/naiveproxy
+cp -rf helloworld/naiveproxy package/naiveproxy
 cp -rf helloworld/redsocks2 package/redsocks2
 cp -rf helloworld/shadow-tls package/shadow-tls
-#cp -rf helloworld/shadowsocks-libev package/shadowsocks-libev
-#cp -rf helloworld/shadowsocks-rust package/shadowsocks-rust
-#cp -rf helloworld/shadowsocksr-libev package/shadowsocksr-libev
-#cp -rf helloworld/simple-obfs package/simple-obfs
-#cp -rf helloworld/tcping package/tcping
+cp -rf helloworld/shadowsocks-libev package/shadowsocks-libev
+cp -rf helloworld/shadowsocks-rust package/shadowsocks-rust
+cp -rf helloworld/shadowsocksr-libev package/shadowsocksr-libev
+cp -rf helloworld/simple-obfs package/simple-obfs
+cp -rf helloworld/tcping package/tcping
 cp -rf helloworld/trojan package/trojan
-#cp -rf helloworld/tuic-client package/tuic-client
+cp -rf helloworld/tuic-client package/tuic-client
 cp -rf helloworld/v2ray-core package/v2ray-core
-#cp -rf helloworld/v2ray-plugin package/v2ray-plugin
+cp -rf helloworld/v2ray-plugin package/v2ray-plugin
 #cp -rf helloworld/v2raya package/v2raya
-#cp -rf helloworld/xray-core package/xray-core
-#cp -rf helloworld/xray-plugin package/xray-plugin
+cp -rf helloworld/xray-core package/xray-core
+cp -rf helloworld/xray-plugin package/xray-plugin
 rm -rf helloworld
 
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git  package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git  package/luci-app-passwall2
 
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
-cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
-cp -rf openwrt-passwall-packages/dns2socks package/dns2socks
+#cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
+#cp -rf openwrt-passwall-packages/dns2socks package/dns2socks
 cp -rf openwrt-passwall-packages/dns2tcp package/geoview
-cp -rf openwrt-passwall-packages/hysteria package/hysteria
-cp -rf openwrt-passwall-packages/ipt2socks package/ipt2socks
-cp -rf openwrt-passwall-packages/microsocks package/microsocks
-cp -rf openwrt-passwall-packages/naiveproxy package/naiveproxy
-cp -rf openwrt-passwall-packages/shadowsocks-libev package/shadowsocks-libev
-cp -rf openwrt-passwall-packages/shadowsocks-rust package/shadowsocks-rust
-cp -rf openwrt-passwall-packages/shadowsocksr-libev package/shadowsocksr-libev
-cp -rf openwrt-passwall-packages/simple-obfs package/simple-obfs
-cp -rf openwrt-passwall-packages/sing-box package/sing-box
-cp -rf openwrt-passwall-packages/tcping package/tcping
+#cp -rf openwrt-passwall-packages/hysteria package/hysteria
+#cp -rf openwrt-passwall-packages/ipt2socks package/ipt2socks
+#cp -rf openwrt-passwall-packages/microsocks package/microsocks
+#cp -rf openwrt-passwall-packages/naiveproxy package/naiveproxy
+#cp -rf openwrt-passwall-packages/shadow-tls package/shadow-tls
+#cp -rf openwrt-passwall-packages/shadowsocks-libev package/shadowsocks-libev
+#cp -rf openwrt-passwall-packages/shadowsocks-rust package/shadowsocks-rust
+#cp -rf openwrt-passwall-packages/shadowsocksr-libev package/shadowsocksr-libev
+#cp -rf openwrt-passwall-packages/simple-obfs package/simple-obfs
+#cp -rf openwrt-passwall-packages/sing-box package/sing-box
+#cp -rf openwrt-passwall-packages/tcping package/tcping
 cp -rf openwrt-passwall-packages/trojan-plus package/trojan-plus
-cp -rf openwrt-passwall-packages/tuic-client package/tuic-client
+#cp -rf openwrt-passwall-packages/tuic-client package/tuic-client
 #cp -rf openwrt-passwall-packages/v2ray-geodata package/v2ray-geodata #与lean重复feeds/packages/net
-cp -rf openwrt-passwall-packages/v2ray-plugin package/v2ray-plugin
-cp -rf openwrt-passwall-packages/xray-core package/xray-core
-cp -rf openwrt-passwall-packages/xray-plugin package/xray-plugin
+#cp -rf openwrt-passwall-packages/v2ray-plugin package/v2ray-plugin
+#cp -rf openwrt-passwall-packages/xray-core package/xray-core
+#cp -rf openwrt-passwall-packages/xray-plugin package/xray-plugin
 rm -rf openwrt-passwall-packages
 
 # 添加themes
