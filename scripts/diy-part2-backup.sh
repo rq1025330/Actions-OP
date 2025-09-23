@@ -34,6 +34,10 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/general/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
+# lang/rust/Makefile 1.84 -> 1.85.1
+# sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.85.1/g' feeds/packages/lang/rust/Makefile
+# sed -i 's/PKG_HASH:=.*/PKG_HASH:=0f2995ca083598757a8d9a293939e569b035799e070f419a686b0996fb94238a/g' feeds/packages/lang/rust/Makefile
+
 # 移除软件包
 rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-pptp-server
@@ -51,34 +55,6 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
-# Fix error
-# libxslt
-#git clone --depth=1 https://github.com/Lienol/openwrt-packages.git
-#rm -rf feeds/packages/libs/libxslt
-#cp -rf openwrt-packages/libs/libxslt feeds/packages/libs/libxslt
-#rm -rf openwrt-packages
-
-# elfutils
-rm -rf package/libs/elfutils
-git clone --depth=1 https://github.com/Lienol/openwrt.git
-cp -rf openwrt/package/libs/elfutils package/libs/elfutils
-rm -rf openwrt
-
-# tailscale
-rm -rf feeds/packages/net/tailscale
-cp -rf $GITHUB_WORKSPACE/general/tailscale feeds/packages/net/tailscale
-
-# golang
-rm -rf feeds/packages/lang/golang
-#git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-git clone --depth=1 https://github.com/immortalwrt/packages.git
-cp -rf packages/lang/golang feeds/packages/lang/golang
-rm -rf packages
-
-# shadowsocks-rust
-cp -rf $GITHUB_WORKSPACE/general/shadowsocks-rust package/shadowsocks-rust
-
-
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
@@ -88,21 +64,47 @@ git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome.git packag
 git clone --depth=1 https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 git clone -b 18.06 https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser #lienol源码改进而来
 sed -i 's/services/nas/g' package/luci-app-filebrowser/luasrc/controller/filebrowser.lua #文件浏览器-->网络存储
-git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-pptp-server #lean中包含
-git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-ssr-mudb-server
 
-git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-filemanager
-git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-syncthing
+#git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-pptp-server #lean中包含
+#git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-ssr-mudb-server
+git clone --depth=1 https://github.com/Lienol/openwrt-package.git
+cp -rf openwrt-package/luci-app-pptp-server package/luci-app-pptp-server
+cp -rf openwrt-package/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+rm -rf openwrt-package
+
+#git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-filemanager
+#git_sparse_clone master https://github.com/immortalwrt/luci applications/luci-app-syncthing
+git clone --depth=1 https://github.com/immortalwrt/luci.git
+cp -rf luci/applications/luci-app-filemanager package/luci-app-filemanager
+cp -rf luci/applications/luci-app-syncthing package/luci-app-syncthing
 cp -r package/luci-app-syncthing/po/zh_Hans/ package/luci-app-syncthing/po/zh-cn/
+rm -rf luci
 
-git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages smartdns #lean中包含,feeds/packages/net
+#git_sparse_clone master https://github.com/immortalwrt/packages utils/syncthing
+git clone --depth=1 https://github.com/immortalwrt/packages.git
+cp -rf packages/utils/syncthing package/syncthing
+rm -rf packages 
+
+#git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-smartdns
+#git_sparse_clone master https://github.com/kenzok8/openwrt-packages smartdns #lean中包含,feeds/packages/net
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
+cp -rf openwrt-packages/luci-app-smartdns package/luci-app-smartdns
+cp -rf openwrt-packages/luci-app-smartdns package/smartdns
+rm -rf openwrt-packages 
+
 git clone --depth=1 https://github.com/rq1025330/luci-app-vhUSBService.git package/luci-app-vhUSBService
-git_sparse_clone master https://github.com/sundaqiang/openwrt-packages luci-app-wolplus
+
+#git_sparse_clone master https://github.com/sundaqiang/openwrt-packages luci-app-wolplus
+git clone --depth=1 https://github.com/sundaqiang/openwrt-packages.git
+cp -rf openwrt-packages/luci-app-wolplus package/luci-app-wolplus
+rm -rf openwrt-packages
 
 # 添加Amlogic Service
-git_sparse_clone main https://github.com/ophub/luci-app-amlogic luci-app-amlogic
+#git_sparse_clone main https://github.com/ophub/luci-app-amlogic luci-app-amlogic
+git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git
+cp -rf luci-app-amlogic/luci-app-amlogic package/luci-app-amlogic
+rm -rf luci-app-amlogic
+
 # Modify the default configuration of Amlogic Box
 # 1.Set the download repository of the OpenWrt files to your github.com（OpenWrt 文件的下载仓库）
 sed -i "s|https.*/OpenWrt|https://github.com/rq1025330/Actions-OP|g" package/luci-app-amlogic/root/etc/config/amlogic
@@ -120,79 +122,91 @@ git clone --depth=1 https://github.com/linkease/istore-ui.git package/istore-ui
 git clone --depth=1 https://github.com/linkease/istore.git package/istore
 sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
 
-git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+#git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+git clone --depth=1 https://github.com/vernesong/OpenClash.git
+cp -rf OpenClash/luci-app-openclash package/luci-app-openclash
+rm -rf OpenClash
+
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
 make && sudo make install
 popd
 
 # 添加vssr&ssr-plus&passwall
-git_sparse_clone master https://github.com/xiangfeidexiaohuo/extra-ipk patch/wall-luci/luci-app-vssr
+#git_sparse_clone master https://github.com/xiangfeidexiaohuo/extra-ipk patch/wall-luci/luci-app-vssr
+git clone --depth=1 https://github.com/xiangfeidexiaohuo/extra-ipk.git
+cp -rf extra-ipk/patch/wall-luci/luci-app-vssr package/luci-app-vssr
+rm -rf extra-ipk
+
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb #vssr 依赖
 
 git clone --depth=1 https://github.com/fw876/helloworld.git
 cp -rf helloworld/luci-app-ssr-plus package/luci-app-ssr-plus
-#cp -rf helloworld/chinadns-ng package/chinadns-ng
-#cp -rf helloworld/dns2socks package/dns2socks
-#cp -rf helloworld/dns2tcp package/dns2tcp
-#cp -rf helloworld/gn package/gn
-#cp -rf helloworld/hysteria package/hysteria
-#cp -rf helloworld/ipt2socks package/ipt2socks
+cp -rf helloworld/chinadns-ng package/chinadns-ng
+cp -rf helloworld/dns2socks-rust package/dns2socks-rust
+cp -rf helloworld/dns2socks package/dns2socks
+cp -rf helloworld/dns2tcp package/dns2tcp
+cp -rf helloworld/dnsproxy package/dnsproxy
+cp -rf helloworld/gn package/gn
+cp -rf helloworld/hysteria package/hysteria
+cp -rf helloworld/ipt2socks package/ipt2socks
 cp -rf helloworld/lua-neturl package/lua-neturl
-#cp -rf helloworld/microsocks package/microsocks
+cp -rf helloworld/microsocks package/microsocks
 cp -rf helloworld/mosdns package/mosdns
-#cp -rf helloworld/naiveproxy package/naiveproxy
+cp -rf helloworld/naiveproxy package/naiveproxy
 cp -rf helloworld/redsocks2 package/redsocks2
 cp -rf helloworld/shadow-tls package/shadow-tls
-#cp -rf helloworld/shadowsocks-rust package/shadowsocks-rust
-#cp -rf helloworld/shadowsocksr-libev package/shadowsocksr-libev
-#cp -rf helloworld/simple-obfs package/simple-obfs
-#cp -rf helloworld/tcping package/tcping
-#cp -rf helloworld/trojan package/trojan
+cp -rf helloworld/shadowsocks-libev package/shadowsocks-libev
+cp -rf helloworld/shadowsocks-rust package/shadowsocks-rust
+cp -rf helloworld/shadowsocksr-libev package/shadowsocksr-libev
+cp -rf helloworld/simple-obfs package/simple-obfs
+cp -rf helloworld/tcping package/tcping
+cp -rf helloworld/trojan package/trojan
 cp -rf helloworld/tuic-client package/tuic-client
-#cp -rf helloworld/v2ray-core package/v2ray-core
-#cp -rf helloworld/v2ray-plugin package/v2ray-plugin
+cp -rf helloworld/v2ray-core package/v2ray-core
+cp -rf helloworld/v2ray-plugin package/v2ray-plugin
 #cp -rf helloworld/v2raya package/v2raya
-#cp -rf helloworld/xray-core package/xray-core
-#cp -rf helloworld/xray-plugin package/xray-plugin
+cp -rf helloworld/xray-core package/xray-core
+cp -rf helloworld/xray-plugin package/xray-plugin
 rm -rf helloworld
 
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git  package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git  package/luci-app-passwall2
 
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
-cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
-cp -rf openwrt-passwall-packages/dns2socks package/dns2socks
-cp -rf openwrt-passwall-packages/dns2tcp package/dns2tcp
+#cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
+#cp -rf openwrt-passwall-packages/dns2socks package/dns2socks
 cp -rf openwrt-passwall-packages/dns2tcp package/geoview
-cp -rf openwrt-passwall-packages/gn package/gn
-cp -rf openwrt-passwall-packages/hysteria package/hysteria
-cp -rf openwrt-passwall-packages/ipt2socks package/ipt2socks
-cp -rf openwrt-passwall-packages/microsocks package/microsocks
-cp -rf openwrt-passwall-packages/naiveproxy package/naiveproxy
-#cp -rf openwrt-passwall-packages/pdnsd-alt package/pdnsd-alt #与lean重复feeds/packages/net
-cp -rf openwrt-passwall-packages/shadowsocks-libev package/shadowsocks-libev
-cp -rf openwrt-passwall-packages/shadowsocks-rust package/shadowsocks-rust
-cp -rf openwrt-passwall-packages/shadowsocksr-libev package/shadowsocksr-libev
-cp -rf openwrt-passwall-packages/simple-obfs package/simple-obfs
-cp -rf openwrt-passwall-packages/sing-box package/sing-box
-cp -rf openwrt-passwall-packages/ssocks package/ssocks
-cp -rf openwrt-passwall-packages/tcping package/tcping
+#cp -rf openwrt-passwall-packages/hysteria package/hysteria
+#cp -rf openwrt-passwall-packages/ipt2socks package/ipt2socks
+#cp -rf openwrt-passwall-packages/microsocks package/microsocks
+#cp -rf openwrt-passwall-packages/naiveproxy package/naiveproxy
+#cp -rf openwrt-passwall-packages/shadow-tls package/shadow-tls
+#cp -rf openwrt-passwall-packages/shadowsocks-libev package/shadowsocks-libev
+#cp -rf openwrt-passwall-packages/shadowsocks-rust package/shadowsocks-rust
+#cp -rf openwrt-passwall-packages/shadowsocksr-libev package/shadowsocksr-libev
+#cp -rf openwrt-passwall-packages/simple-obfs package/simple-obfs
+#cp -rf openwrt-passwall-packages/sing-box package/sing-box
+#cp -rf openwrt-passwall-packages/tcping package/tcping
 cp -rf openwrt-passwall-packages/trojan-plus package/trojan-plus
-cp -rf openwrt-passwall-packages/trojan package/trojan
-cp -rf openwrt-passwall-packages/tuic-client package/tuic-client
-cp -rf openwrt-passwall-packages/v2ray-core package/v2ray-core
+#cp -rf openwrt-passwall-packages/tuic-client package/tuic-client
 #cp -rf openwrt-passwall-packages/v2ray-geodata package/v2ray-geodata #与lean重复feeds/packages/net
-cp -rf openwrt-passwall-packages/v2ray-plugin package/v2ray-plugin
-cp -rf openwrt-passwall-packages/xray-core package/xray-core
-cp -rf openwrt-passwall-packages/xray-plugin package/xray-plugin
+#cp -rf openwrt-passwall-packages/v2ray-plugin package/v2ray-plugin
+#cp -rf openwrt-passwall-packages/xray-core package/xray-core
+#cp -rf openwrt-passwall-packages/xray-plugin package/xray-plugin
 rm -rf openwrt-passwall-packages
 
 # 添加themes
 git clone --depth=1 https://github.com/kenzok78/luci-app-argonne-config.git  package/luci-app-argonne-config
 git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne.git  package/luci-theme-argonne
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-atmaterial_new
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-ifit
+
+#git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-atmaterial_new
+#git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-theme-ifit
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git
+cp -rf openwrt-packages/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
+cp -rf openwrt-packages/luci-theme-ifit package/luci-theme-ifit
+rm -rf openwrt-packages
+
 git clone --depth=1 https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
 git clone --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomato.git package/luci-theme-opentomato
 git clone --depth=1 https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
@@ -202,8 +216,16 @@ cp -rf $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomc
 sed -i 's/e025/e02c/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 sed -i 's/66CC00/00b2ee/g' package/luci-theme-opentomcat/files/htdocs/css/style.css
 git clone --depth=1 https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
-git_sparse_clone master https://github.com/apollo-ng/luci-theme-darkmatter luci/themes/luci-theme-darkmatter
-git_sparse_clone openwrt-18.06 https://github.com/rosywrt/luci-theme-rosy luci-theme-rosy
+
+#git_sparse_clone master https://github.com/apollo-ng/luci-theme-darkmatter luci/themes/luci-theme-darkmatter
+git clone --depth=1 https://github.com/apollo-ng/luci-theme-darkmatter.git
+cp -rf luci-theme-darkmatter/luci/themes/luci-theme-darkmatter package/luci-theme-darkmatter
+rm -rf luci-theme-darkmatter
+
+#git_sparse_clone openwrt-18.06 https://github.com/rosywrt/luci-theme-rosy luci-theme-rosy
+git clone --depth=1 https://github.com/rosywrt/luci-theme-rosy.git
+cp -rf luci-theme-rosy/luci-theme-rosy package/luci-theme-rosy
+rm -rf luci-theme-rosy
 
 # 修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
