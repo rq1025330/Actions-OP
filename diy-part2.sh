@@ -165,7 +165,7 @@ cp -rf helloworld/trojan package/trojan
 cp -rf helloworld/tuic-client package/tuic-client
 cp -rf helloworld/v2ray-core package/v2ray-core
 cp -rf helloworld/v2ray-plugin package/v2ray-plugin
-#cp -rf helloworld/v2raya package/v2raya
+cp -rf helloworld/v2raya package/v2raya
 cp -rf helloworld/xray-core package/xray-core
 cp -rf helloworld/xray-plugin package/xray-plugin
 rm -rf helloworld
@@ -176,7 +176,7 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git  package/
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
 #cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
 #cp -rf openwrt-passwall-packages/dns2socks package/dns2socks
-cp -rf openwrt-passwall-packages/dns2tcp package/geoview
+cp -rf openwrt-passwall-packages/geoview package/geoview
 #cp -rf openwrt-passwall-packages/hysteria package/hysteria
 #cp -rf openwrt-passwall-packages/ipt2socks package/ipt2socks
 #cp -rf openwrt-passwall-packages/microsocks package/microsocks
