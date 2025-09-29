@@ -38,6 +38,7 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.85.1/g' feeds/packages/lang/rust/Makefile
 # sed -i 's/PKG_HASH:=.*/PKG_HASH:=0f2995ca083598757a8d9a293939e569b035799e070f419a686b0996fb94238a/g' feeds/packages/lang/rust/Makefile
 
+rm -rf package/libs/elfutils
 git clone --depth=1 https://github.com/openwrt/openwrt.git
 cp -rf openwrt/package/libs/elfutils package/elfutils
 rm -rf openwrt
