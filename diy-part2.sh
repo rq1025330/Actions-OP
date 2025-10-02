@@ -45,7 +45,7 @@ cp -rf openwrt/package/libs/elfutils package/elfutils
 rm -rf openwrt
 
 # gn
-cp -rf $GITHUB_WORKSPACE/general/gn package/gn
+#cp -rf $GITHUB_WORKSPACE/general/gn package/gn
 
 # 移除软件包
 rm -rf feeds/luci/applications/luci-app-netdata
