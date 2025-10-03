@@ -162,7 +162,7 @@ cp -rf helloworld/ipt2socks package/ipt2socks
 cp -rf helloworld/lua-neturl package/lua-neturl
 cp -rf helloworld/microsocks package/microsocks
 cp -rf helloworld/mosdns package/mosdns
-cp -rf helloworld/naiveproxy package/naiveproxy
+#cp -rf helloworld/naiveproxy package/naiveproxy
 cp -rf helloworld/redsocks2 package/redsocks2
 cp -rf helloworld/shadow-tls package/shadow-tls
 cp -rf helloworld/shadowsocks-libev package/shadowsocks-libev
