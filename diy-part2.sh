@@ -162,7 +162,7 @@ cp -rf helloworld/ipt2socks package/ipt2socks
 cp -rf helloworld/lua-neturl package/lua-neturl
 cp -rf helloworld/microsocks package/microsocks
 cp -rf helloworld/mosdns package/mosdns
-#cp -rf helloworld/naiveproxy package/naiveproxy
+cp -rf helloworld/naiveproxy package/naiveproxy
 cp -rf helloworld/redsocks2 package/redsocks2
 cp -rf helloworld/shadow-tls package/shadow-tls
 cp -rf helloworld/shadowsocks-libev package/shadowsocks-libev
@@ -189,7 +189,7 @@ cp -rf openwrt-passwall-packages/geoview package/geoview
 #cp -rf openwrt-passwall-packages/hysteria package/hysteria
 #cp -rf openwrt-passwall-packages/ipt2socks package/ipt2socks
 #cp -rf openwrt-passwall-packages/microsocks package/microsocks
-#cp -rf openwrt-passwall-packages/naiveproxy package/naiveproxy
+cp -rf openwrt-passwall-packages/naiveproxy package/naiveproxy
 #cp -rf openwrt-passwall-packages/shadow-tls package/shadow-tls
 #cp -rf openwrt-passwall-packages/shadowsocks-libev package/shadowsocks-libev
 #cp -rf openwrt-passwall-packages/shadowsocks-rust package/shadowsocks-rust
