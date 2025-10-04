@@ -67,8 +67,8 @@ function git_sparse_clone() {
 # 添加额外软件包
 git clone --depth=1 https://github.com/sbwml/luci-app-alist.git  package/alist
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git  package/luci-app-autotimeset
 git clone --depth=1 https://github.com/sirpdboy/luci-app-netdata.git  package/luci-app-netdata #lean中包含,修改中文
+git clone --depth=1 https://github.com/sirpdboy/luci-app-taskplan.git  package/luci-app-taskplan
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone --depth=1 https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 git clone -b 18.06 https://github.com/xiaozhuai/luci-app-filebrowser package/luci-app-filebrowser #lienol源码改进而来
